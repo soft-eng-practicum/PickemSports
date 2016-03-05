@@ -2,15 +2,15 @@
 {
   "use strict";
 
-  var express = require('express');
+  var express = require("express");
   var router = express.Router();
 
-  router.route("/")
+  router.route("/partials/:name")
     .get(function(request, response, next)
     {
-      response.render("index",
+      response.render("partials/" + request.params.name,
       {
-        title: "Express"
+        title: Express
       });
     });
 
