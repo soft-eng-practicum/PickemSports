@@ -1,0 +1,17 @@
+<div class="page-header">
+  <h1>sportsApp</h1>
+</div>
+<div ng-show="error" class="alert a;lert-danger row">
+  <span>{{error.message}}</span>
+</div>
+<form ng-submit="logIn()" style="margin-top:30px;">
+  <h3>Login</h3>
+
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Username" ng-model="user.username">
+  </div>
+  <div class="form-group">
+    <input type="text" placeholder="Password" ng-model="user.password">
+  </div>
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
