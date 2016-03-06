@@ -10,7 +10,7 @@
     {
       response.render("partials/" + request.params.name,
       {
-        title: Express
+        title: "Express"
       });
     });
 

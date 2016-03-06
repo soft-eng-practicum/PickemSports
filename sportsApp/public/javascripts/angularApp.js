@@ -2,7 +2,7 @@
 {
 	"use strict";
 
-	var app = angular.module("sportsApp" [
+	var app = angular.module("sportsApp", [
 		"sportsApp.controllers.main",
 		"sportsApp.controllers.auth",
 		"sportsApp.controllers.nav",
@@ -18,7 +18,7 @@
 			$stateProvider.state("root",
 			{
 				abstract: true,
-				views,
+				views:
 				{
 					"header":
 					{
@@ -27,15 +27,7 @@
 					}
 				}
 			});
-
 			$urlRouterProvider.otherwise("dashboard");
 		}
 	]);
 })();
-/* Record controller: put in spereate file under controller folder
-app.controller('Record', ['$scope', function($scope) {
-	$scope.win = 0;
-	$scope.lose = 0;
-
-}]);
-/*

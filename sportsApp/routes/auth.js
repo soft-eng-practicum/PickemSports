@@ -2,7 +2,9 @@
 {
   "use strict";
 
-  var express = require("mongoose");
+  var express = require("express");
+  var router = express.Router();
+  var mongoose = require("mongoose");
   var User = mongoose.model("User");
   var passport = require("passport");
 
@@ -36,7 +38,7 @@
     });
 
     router.route("/login")
-      .post(function(request,response,next)
+      .post(function(request, response, next)
       {
         if(!request.body.username || !request.body.password)
         {

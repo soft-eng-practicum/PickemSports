@@ -2,7 +2,7 @@
 {
   "use strict";
 
-  var app = angular.module("sportsApp.contollers.nav", ["ui.router"]);
+  var app = angular.module("sportsApp.controllers.nav", ["ui.router"]);
 
   app.controller("NavController", ["$scope", "authService",
     function($scope, authService)
