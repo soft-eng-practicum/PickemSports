@@ -6,7 +6,9 @@
 		"sportsApp.controllers.main",
 		"sportsApp.controllers.auth",
 		"sportsApp.controllers.nav",
+		"sportsApp.controllers.nba",
 		"sportsApp.services.auth",
+		"sportsApp.services.nba",
 		"ui.router"
 	]);
 

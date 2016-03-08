@@ -22,7 +22,7 @@ var UserSchema = new mongoose.Schema(
 
   UserSchema.methods.validPassword = function(password)
   {
-    var hash = crypto.pbkldf2Sync(password, this.salt, 1000, 64).toString("hex");
+    var hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString("hex");
     return this.hash === hash;
   };
 

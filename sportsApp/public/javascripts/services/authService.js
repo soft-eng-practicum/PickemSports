@@ -24,7 +24,7 @@
 
       if(token)
       {
-        var payload = JSON.parse($windows.atob(token.split(".")[1]));
+        var payload = JSON.parse($window.atob(token.split(".")[1]));
         return payload.exp > Date.now() / 1000;
       }
       else

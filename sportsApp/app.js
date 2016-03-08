@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var mongoose = require("mongoose");
 require("./models/Users");
+require("./models/Nbateam");
 
 var passport = require("passport");
 require("./config/passport");
@@ -15,6 +16,7 @@ var indexRoutes = require("./routes/index");
 var partialsRoutes = require("./routes/partials");
 var authRoutes = require("./routes/auth");
 var usersRoutes = require("./routes/users");
+var nbaTeamsRoutes = require("./routes/nbateams")
 
 var app = express();
 
@@ -38,6 +40,7 @@ app.use("/", indexRoutes);
 app.use("/", partialsRoutes);
 app.use("/", authRoutes);
 app.use("/", usersRoutes);
+app.use("/", nbaTeamsRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
