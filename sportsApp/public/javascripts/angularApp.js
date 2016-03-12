@@ -9,6 +9,7 @@
 		"sportsApp.controllers.nba",
 		"sportsApp.controllers.contest",
 		"sportsApp.services.auth",
+		"sportsApp.services.nba",
 		"sportsApp.services.contest",
 		"ui.router",
 		"ngResource"

@@ -10,8 +10,7 @@
     {
       parent: "root",
       url: "/dashboard",
-      views:
-      {
+      views: {
         "container@":
         {
           templateUrl: "partials/dashboard",

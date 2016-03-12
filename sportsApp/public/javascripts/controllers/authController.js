@@ -11,8 +11,7 @@
       {
         parent: "root",
         url: "/login",
-        views:
-        {
+        views: {
           "container@":
           {
             templateUrl: "partials/login",

@@ -10,8 +10,7 @@
     {
       parent: "root",
       url: "/contest",
-      views:
-      {
+      views: {
         "container@":
         {
           templateUrl: "partials/contest",
@@ -26,6 +25,5 @@ app.controller("ContestController", ["$scope","contestService",
 function($scope, contestService)
 {
   $scope.contest = contestService.query();
-  $scope.matchup = contestService.get({}, {id: 1});
 }]);
 })();
