@@ -1,0 +1,13 @@
+<div class="page-header">
+  <h1>PickemSports</h1>
+</div>
+<table class="table table-striped table-bordered table-hover table-condensed">
+  <tr>
+    <th>Home Team</th>
+    <th>Away Team</th>
+  </tr>
+  <tr ng-repeat="matchup in contest">
+    <td>{{matchup.homeTeam}}</td>
+    <td>{{matchup.awayTeam}}</td>
+  </tr>
+</table>

@@ -9,7 +9,7 @@
     $stateProvider.state("contest",
     {
       parent: "root",
-      url: "/contest/{id}",
+      url: "/contest",
       views:
       {
         "container@":
@@ -18,27 +18,14 @@
           controller: "ContestController"
         }
       }
-      resolve:
-      {
-        contest: [
-          "$stateParams", "contestService",
-          function($stateParams, contestService)
-          {
-            return contestService.get($stateParams.id);
-          }
-        ]
-      }
     });
   }
 ]);
 
-app.controller("ContestController", ["$scope", "contestService", "contests",
-"authService", function($scope, contestService, contests, authService)
+app.controller("ContestController", ["$scope","contestService",
+function($scope, contestService)
 {
-  $scope.isLoggedIn = authService.isLoggedIn;
-  $scope.contests = contests;
-
-  function userPickMatchup(matchup)
-}
-)]
-})
+  $scope.contest = contestService.query();
+  $scope.matchup = contestService.get({}, {id: 1});
+}]);
+})();

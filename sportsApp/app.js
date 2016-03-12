@@ -4,10 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var ngResource = require("ng-resource");
 
 var mongoose = require("mongoose");
 require("./models/Users");
 require("./models/Nbateam");
+require("./models/Contest");
+require("./models/Matchup");
+
 
 var passport = require("passport");
 require("./config/passport");
@@ -16,7 +20,8 @@ var indexRoutes = require("./routes/index");
 var partialsRoutes = require("./routes/partials");
 var authRoutes = require("./routes/auth");
 var usersRoutes = require("./routes/users");
-var nbaTeamsRoutes = require("./routes/nbateams")
+var nbaTeamsRoutes = require("./routes/nbateams");
+var contestRoutes = require("./routes/contests");
 
 var app = express();
 
@@ -41,6 +46,7 @@ app.use("/", partialsRoutes);
 app.use("/", authRoutes);
 app.use("/", usersRoutes);
 app.use("/", nbaTeamsRoutes);
+app.use("/", contestRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

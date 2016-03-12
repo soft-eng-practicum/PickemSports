@@ -7,9 +7,11 @@
 		"sportsApp.controllers.auth",
 		"sportsApp.controllers.nav",
 		"sportsApp.controllers.nba",
+		"sportsApp.controllers.contest",
 		"sportsApp.services.auth",
-		"sportsApp.services.nba",
-		"ui.router"
+		"sportsApp.services.contest",
+		"ui.router",
+		"ngResource"
 	]);
 
 	app.config([

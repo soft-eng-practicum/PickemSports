@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "homeTeam": "Portland",
+    "awayTeam": "Atlanta"
+  },
+  {
+    "id": 2,
+    "homeTeam": "Washington",
+    "awayTeam": "Boston"
+  }
+]
