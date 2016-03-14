@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" ui-sref="home">
+      <a class="navbar-brand" ui-sref="dashboard">
         <span>Home</span>
       </a>
     </div>
@@ -20,7 +20,7 @@
           <a ui-sref="contest">contest</a>
         </li>
         <li ng-show="isLoggedIn()">
-          <a>Welcome, {{ currentUser() }}</a>
+          <a ui-sref="userpage"> {{ currentUser() }}</a>
         </li>
         <li ng-show="isLoggedIn()">
           <a href="" ng-click="logOut()">Log Out</a>
