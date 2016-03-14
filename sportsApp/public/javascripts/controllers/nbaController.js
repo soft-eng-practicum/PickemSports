@@ -3,6 +3,7 @@
   "use strict";
 
   var app = angular.module("sportsApp.controllers.nba", ["ui.router"]);
+  
 
   app.config(["$stateProvider", function($stateProvider)
   {
