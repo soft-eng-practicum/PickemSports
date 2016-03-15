@@ -9,6 +9,7 @@
 		"sportsApp.controllers.nav",
 		"sportsApp.controllers.nba",
 		"sportsApp.controllers.nfl",
+		"sportsApp.controllers.mlb",
 		"sportsApp.controllers.nhl",
 		"sportsApp.controllers.contest",
 		"sportsApp.services.auth",
