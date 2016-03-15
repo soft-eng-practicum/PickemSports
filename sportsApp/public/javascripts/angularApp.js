@@ -4,9 +4,13 @@
 
 	var app = angular.module("sportsApp", [
 		"sportsApp.controllers.main",
+		"sportsApp.controllers.userpage",
 		"sportsApp.controllers.auth",
 		"sportsApp.controllers.nav",
 		"sportsApp.controllers.nba",
+		"sportsApp.controllers.nfl",
+		"sportsApp.controllers.mlb",
+		"sportsApp.controllers.nhl",
 		"sportsApp.controllers.contest",
 		"sportsApp.services.auth",
 		"sportsApp.services.nba",
