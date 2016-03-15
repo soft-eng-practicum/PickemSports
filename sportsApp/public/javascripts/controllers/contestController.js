@@ -24,6 +24,11 @@
 app.controller("ContestController", ["$scope","contestService",
 function($scope, contestService)
 {
-  $scope.contest = contestService.query();
+  $scope.contest = contestService.getMatchups()
+  .then(function (matchups) {
+    $scope.contest = matchups;
+  }, function (error) {
+    console.error(error);
+  })  
 }]);
 })();

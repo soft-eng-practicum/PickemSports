@@ -1,12 +1,24 @@
 [
   {
-    "id": 1,
-    "homeTeam": "Portland",
-    "awayTeam": "Atlanta"
-  },
+    "matchupId": 1,
+    "nbaTeams": [
+      {
+      "team": "Portland"
+      },
+      {
+      "team": "Atlanta"
+      }
+    ]
+   },
   {
-    "id": 2,
-    "homeTeam": "Washington",
-    "awayTeam": "Boston"
+    "matchupId": 2,
+    "nbaTeams": [
+      {
+      "team": "Boston"
+      },
+      {
+      "team": "Washington"
+      }
+    ]
   }
 ]

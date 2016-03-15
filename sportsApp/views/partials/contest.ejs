@@ -2,20 +2,18 @@
   <h1>PickemSports</h1>
 </div>
 
-<table class="table table-striped table-bordered table-hover table-condensed">
-<tr>
-  <th>Home Team</th>
-  <th>Away Team</th>
-</tr>
-<tr ng-repeat="matchup in contest">
-  <td>
-    <label class="radio-inline">
-      <input type="radio" name="{{matchup.id}}" id="{{matchup.id}}" value="Home">{{matchup.homeTeam}}
-    </label>
-  </td>
-  <td>
-    <label class="radio-inline">
-      <input type="radio" name="{{matchup.id}}" id="{{matchup.id}}" value="Away">{{matchup.awayTeam}}
-    </label>
-  </td>
-</table>
+<div ng-repeat="matchup in contest">
+    <div class="row">
+        <br/><span>Matchup No.{{matchup.matchupId}}</span>
+    </div>
+    <div ng-repeat="nbaTeams in matchup.nbaTeams">
+       <input type="radio" name="matchup{{matchup.matchupId}}"
+        value="{{nbaTeams.team}} in MatchupId: {{matchup.matchupId}}"
+        ng-model="matchup.selectedTeam"
+        ng-value="{{nbaTeams.team}}" />{{nbaTeams.team}}
+    </div>
+</div>
+
+<div ng-repeat="matchup in contest">
+  <p>{{matchup.selectedTeam}}</p>
+</div>
