@@ -4,7 +4,6 @@
 
 	var app = angular.module("sportsApp", [
 		"sportsApp.controllers.main",
-		"sportsApp.controllers.userpage",
 		"sportsApp.controllers.auth",
 		"sportsApp.controllers.nav",
 		"sportsApp.controllers.nba",
@@ -16,7 +15,8 @@
 		"sportsApp.services.nba",
 		"sportsApp.services.contest",
 		"ui.router",
-		"ngResource"
+		"ngResource",
+		"angularMoment"
 	]);
 
 	app.config([

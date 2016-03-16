@@ -1,23 +1,31 @@
 [
   {
     "matchupId": 1,
+    "selectedTeam": "",
+    "matchupWinner": "Atlanta",
     "nbaTeams": [
       {
-      "team": "Portland"
+      "team": "Portland",
+      "teamScore": 90
       },
       {
-      "team": "Atlanta"
+      "team": "Atlanta",
+      "teamScore": 96
       }
     ]
    },
   {
     "matchupId": 2,
+    "selectedTeam": "",
+    "matchupWinner": "Boston",
     "nbaTeams": [
       {
-      "team": "Boston"
+      "team": "Boston",
+      "teamScore": 112
       },
       {
-      "team": "Washington"
+      "team": "Washington",
+      "teamScore": 105
       }
     ]
   }

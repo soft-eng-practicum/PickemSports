@@ -7,7 +7,8 @@ var MatchupSchema = new mongoose.Schema(
       ref: "nbaTeams"
     },
     matchupId: Number,
-    pick: String
+    selectedTeam: String,
+    matchupWinner: String
   });
 
   mongoose.model("Matchup", MatchupSchema);
