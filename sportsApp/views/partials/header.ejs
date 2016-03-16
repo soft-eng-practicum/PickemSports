@@ -14,20 +14,19 @@
     <div class="collapse navbar-collapse" id="navbar-ex-collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
+          <a ui-sref="contest">Contests</a>
+        </li>
+        <li>
           <a ui-sref="nhl">NHL</a>
         </li>
         <li>
           <a ui-sref="nba">NBA</a>
-        </li>
         </li>
         <li>
           <a ui-sref="mlb">MLB</a>
         </li>
         <li>
           <a ui-sref="nfl">NFL</a>
-        </li>
-        <li>
-          <a ui-sref="contest">CONTEST</a>
         </li>
         <li ng-show="isLoggedIn()">
           <a ui-sref="userpage"> {{ currentUser() }}</a>

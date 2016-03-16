@@ -24,6 +24,26 @@
 app.controller("ContestController", ["$scope","contestService",
 function($scope, contestService)
 {
-  $scope.contest = contestService.query();
+  $scope.contest = contestService.getMatchups()
+  .then(function (matchups) {
+    $scope.contest = matchups;
+  }, function (error) {
+    console.error(error);
+  })
+
+  $scope.matchup = {
+    selectedTeam: null
+  };
+
+  $scope.isAvailable = function() {
+    var now = moment(new Date()).format("hh:mm:ss a");
+    var start = moment("07:30:00 pm", "hh:mm:ss a");
+    if(start > now) {
+      return false;
+    }
+    else {
+      return true;
+      }
+  }
 }]);
 })();

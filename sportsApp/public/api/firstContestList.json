@@ -1,12 +1,32 @@
 [
   {
-    "id": 1,
-    "homeTeam": "Portland",
-    "awayTeam": "Atlanta"
-  },
+    "matchupId": 1,
+    "selectedTeam": "",
+    "matchupWinner": "Atlanta",
+    "nbaTeams": [
+      {
+      "team": "Portland",
+      "teamScore": 90
+      },
+      {
+      "team": "Atlanta",
+      "teamScore": 96
+      }
+    ]
+   },
   {
-    "id": 2,
-    "homeTeam": "Washington",
-    "awayTeam": "Boston"
+    "matchupId": 2,
+    "selectedTeam": "",
+    "matchupWinner": "Boston",
+    "nbaTeams": [
+      {
+      "team": "Boston",
+      "teamScore": 112
+      },
+      {
+      "team": "Washington",
+      "teamScore": 105
+      }
+    ]
   }
 ]

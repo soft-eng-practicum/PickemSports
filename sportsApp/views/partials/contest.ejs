@@ -3,20 +3,21 @@
 </div>
 
 <table class="table table-striped table-bordered table-hover table-condensed">
-<tr>
-  <th>Home Team</th>
-  <th>Away Team</th>
-</tr>
-<tr ng-repeat="matchup in contest">
-  <td>
-    <label class="radio-inline">
-      <input type="radio" name="{{matchup.id}}" id="{{matchup.id}}" value="Home">{{matchup.homeTeam}}
-    </label>
-  </td>
-  <td>
-    <label class="radio-inline">
-      <input type="radio" name="{{matchup.id}}" id="{{matchup.id}}" value="Away">{{matchup.awayTeam}}
-    </label>
-  </td>
+  <tr>
+    <th>Home Team</th>
+    <th>Away Team</th>
+    <th>Winning Team</th>
+  <tr ng-repeat="matchup in contest">
+    <td ng-repeat="nbaTeams in matchup.nbaTeams">
+      <input type="radio" ng-model="matchup.selectedTeam" name="matchup{{matchup.matchupId}}"
+      ng-value="nbaTeams.team" ng-disabled="isAvailable() === true" />{{nbaTeams.team}} : {{nbaTeams.teamScore}}
+    </td>
+    <td>
+      {{matchup.matchupWinner}}
+    </td>
+  </tr>
 </table>
 
+<div ng-repeat="matchup in contest">
+  <p>{{matchup.selectedTeam}}</p>
+</div>

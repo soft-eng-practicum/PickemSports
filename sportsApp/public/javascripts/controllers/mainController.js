@@ -24,6 +24,5 @@
     function($scope, authService)
   {
     $scope.isLoggedIn = authService.isLoggedIn;
-    // Should add user's ability to pick contests here
   }]);
 })();
