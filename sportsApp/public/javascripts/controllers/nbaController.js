@@ -24,5 +24,6 @@
   app.controller("NbaController", ["$scope", "nbateams", function($scope, nbateams)
   {
     $scope.nbateams = nbateams;
+    
   }]);
 })();
