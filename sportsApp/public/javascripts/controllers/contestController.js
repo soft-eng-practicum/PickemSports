@@ -35,15 +35,16 @@ function($scope, contestService)
     selectedTeam: null
   };
 
-  $scope.isAvailable = function() {
-    var now = moment(new Date()).format("hh:mm:ss a");
-    var start = moment("07:30:00 pm", "hh:mm:ss a");
-    if(start > now) {
-      return false;
-    }
-    else {
-      return true;
+
+    $scope.isAvailable = function() {
+      var now = moment(new Date()).format("hh:mm:ss a");
+      var start = moment("01:30:00 pm", "hh:mm:ss a");
+      if(start > now) {
+        return false;
       }
-  }
+      else {
+        return true;
+        }
+  };
 }]);
 })();

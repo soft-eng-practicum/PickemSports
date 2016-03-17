@@ -8,7 +8,8 @@ var MatchupSchema = new mongoose.Schema(
     },
     matchupId: Number,
     selectedTeam: String,
-    matchupWinner: String
+    matchupWinner: String,
+    startDate: String
   });
 
   mongoose.model("Matchup", MatchupSchema);

@@ -66,7 +66,7 @@
 
       function logIn()
       {
-        authService.logIn($scope.user).error(function(err)
+        authService.logIn($scope.user).error(function(error)
         {
           $scope.error = error;
         }).then(function()
