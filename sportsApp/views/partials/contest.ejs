@@ -6,16 +6,19 @@
     <th>Home Team</th>
     <th>Away Team</th>
     <th>Winning Team</th>
-  <tr ng-repeat="matchup in contest">
-    <td ng-repeat="nbaTeams in matchup.nbaTeams">
+  <tr ng-repeat="matchup in contest" ng-init="outerIndex=$index">
+    <td ng-repeat="nbaTeams in matchup.nbaTeams" ng-init="innerIndex=$index">
       <input type="radio" ng-model="matchup.selectedTeam" name="matchup{{matchup.matchupId}}"
-      ng-value="nbaTeams.team" ng-disabled="isAvailable() === false" />{{nbaTeams.team}} : {{nbaTeams.teamScore}}
+      ng-value="nbaTeams.team" ng-disabled="isAvailable() === false" />
+      <img ng-src="{{nbaTeams.logo}}"> {{nbaTeams.team}} : {{nbaTeams.teamScore}}
     </td>
     <td>
       {{matchup.matchupWinner}}
     </td>
   </tr>
 </table>
+
+{{user.points}}
 
 <div ng-repeat="matchup in contest">
   <p>{{matchup.selectedTeam}}</p>

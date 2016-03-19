@@ -4,6 +4,7 @@ var NbaTeamSchema = new mongoose.Schema({
   abbr: String,
   team: String,
   mascot: String,
-  teamScore: Number
+  teamScore: Number,
+  logo: String
 });
 module.exports = mongoose.model('Nbateam', NbaTeamSchema);

@@ -10,7 +10,6 @@ var UserSchema = new mongoose.Schema(
       lowercase: true,
       unique: true
     },
-    userId: Number,
     hash: String,
     salt: String,
     points: Number
