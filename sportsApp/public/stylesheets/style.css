@@ -1578,3 +1578,21 @@ html {
 	text-align: center;
 	padding: 0;
 }
+#nbateams {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#nbateams td, #nbateams th {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 8px;
+}
+
+#nbateams th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #000000;
+    color: white;
+}

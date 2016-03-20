@@ -1,7 +1,7 @@
 <div class="page-header">
 </div>
 
-<table class="table table-striped table-bordered table-hover table-condensed">
+<table id="nbateams">
   <tr>
     <th>Home Team</th>
     <th>Away Team</th>
@@ -9,7 +9,7 @@
   <tr ng-repeat="matchup in contest" ng-init="outerIndex=$index">
     <td ng-repeat="nbaTeams in matchup.nbaTeams" ng-init="innerIndex=$index">
       <input type="radio" ng-model="matchup.selectedTeam" name="matchup{{matchup.matchupId}}"
-      ng-value="nbaTeams.team" ng-disabled="isAvailable() === false" />
+      ng-value="nbaTeams.team"/>
       <img ng-src="{{nbaTeams.logo}}"> {{nbaTeams.team}} : {{nbaTeams.teamScore}}
     </td>
     <td>
