@@ -11,7 +11,9 @@ id="header1-1" style="background-image: url(stylesheets/images/bsktball-1280x960
             <div class=" col-sm-8 col-sm-offset-2">
               <div class="mbr-hero animated fadeInUp">
                 <h1 class="mbr-hero__text">Welcome to PickemSports</h1>
-                  <p class="mbr-hero__subtext">We provide a web platform in order for users to compete amongst other users in choosing the winners in a particular set of matchups. Please login or register to compete!</p>
+                  <p class="mbr-hero__subtext">We provide a web platform in order for users to compete amongst other users in choosing the winners in a particular set of matchups.
+                    <br>
+                    <span ng-hide="isLoggedIn()">Please login or register to compete!</span>
               </div>
             </div>
           </div>
