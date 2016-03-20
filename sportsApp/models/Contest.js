@@ -13,14 +13,6 @@ var ContestSchema = new mongoose.Schema(
     contestId: Number
   });
 
-  ContestSchema.methods.usersWhoJoined = function(user, callback) {
-    if(this.usersWhoJoined =.indexOf(user._id) == -1) {
-      this.usersWhoJoined.push(user._id);
 
-      if(this.usersWhoJoined.indexOf(user._id) != -1) {
-        this.usersWhoJoined.splice(this.usersWhoJoined.indexOf(user._id), 1);
-      }
-      this.save(callback);
-  }
 
 mongoose.model("Contest", ContestSchema);
