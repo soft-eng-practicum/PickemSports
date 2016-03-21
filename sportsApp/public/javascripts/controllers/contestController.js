@@ -34,17 +34,5 @@ function($scope, contestService)
   $scope.matchup = {
     selectedTeam: null
   };
-
-
-    $scope.isAvailable = function() {
-      var now = moment(new Date()).format("hh:mm:ss a");
-      var start = moment("01:30:00 pm", "hh:mm:ss a");
-      if(start > now) {
-        return false;
-      }
-      else {
-        return true;
-        }
-  };
 }]);
 })();
