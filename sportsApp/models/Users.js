@@ -12,7 +12,11 @@ var UserSchema = new mongoose.Schema(
     },
     hash: String,
     salt: String,
-    points: Number
+    points: Number,
+    selectedTeam: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Matchup"
+    }
   });
 
   UserSchema.methods.setPassword = function(password)

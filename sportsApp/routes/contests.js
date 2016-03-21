@@ -9,7 +9,8 @@
   var Matchup = mongoose.model("Matchup");
   var User = mongoose.model("User");
 
-router.get("/public/api/firstContestList.json"), function(req, res)
+router.route("/contest")
+  .get("/public/api/firstContestList.json"), function(req, res)
     {
       Matchup.find(function (err, matchups) {
         if (err)
