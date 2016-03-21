@@ -16,8 +16,9 @@
     <td>
       <strong>{{matchup.selectedTeam}}</strong>
     </td>
-    <td>
+    <td ng-show="checked">
       {{matchup.matchupWinner}}
     </td>
   </tr>
 </table>
+Click Here to Check Winner! <input type="checkbox" ng-model="checked" aria-label="Toggle ngShow">
