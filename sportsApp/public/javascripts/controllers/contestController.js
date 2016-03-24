@@ -21,8 +21,8 @@
   }
 ]);
 
-app.controller("ContestController", ["$scope","contestService",
-function($scope, contestService)
+app.controller("ContestController", ["$scope","contestService", "authService",
+function($scope, contestService, authService)
 {
 
   $scope.contest = contestService.getMatchups()
@@ -31,6 +31,9 @@ function($scope, contestService)
   }, function (error) {
     console.error(error);
   })
+
+  $scope.isLoggedIn = authService.isLoggedIn;
+  $scope.user = authService.currentUser();
 
 }]);
 })();

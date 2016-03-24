@@ -44,4 +44,5 @@ var UserSchema = new mongoose.Schema(
       }, "SECRET");
     };
 
+
     mongoose.model("User", UserSchema);
