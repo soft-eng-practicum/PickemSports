@@ -7,7 +7,6 @@ var MatchupSchema = new mongoose.Schema(
       ref: "nbaTeams"
     },
     selectedTeam: String,
-    matchupWinner: String,
     startDate: String
   });
 

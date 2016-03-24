@@ -24,6 +24,7 @@
 app.controller("ContestController", ["$scope","contestService",
 function($scope, contestService)
 {
+
   $scope.contest = contestService.getMatchups()
   .then(function (matchups) {
     $scope.contest = matchups;
@@ -31,8 +32,5 @@ function($scope, contestService)
     console.error(error);
   })
 
-  $scope.matchup = {
-    selectedTeam: null
-  };
 }]);
 })();
