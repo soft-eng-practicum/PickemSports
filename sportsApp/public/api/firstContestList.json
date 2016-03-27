@@ -1,77 +1,85 @@
 [
-  {
-    "matchupId": 1,
-    "selectedTeam": "",
-    "matchupWinner": "Atlanta",
-    "nbaTeams": [
-      {
-      "team": "Portland",
-      "logo": "stylesheets/nbalogos/Portland-Trail-Blazers-Logo.png"
-      },
-      {
-      "team": "Atlanta",
-      "logo": "stylesheets/nbalogos/atl-hawks.png"
-      }
-    ]
-   },
-  {
-    "matchupId": 2,
-    "selectedTeam": "",
-    "matchupWinner": "Dallas",
-    "nbaTeams": [
-      {
-      "team": "Dallas",
-      "logo": "stylesheets/nbalogos/Dallas-Mavericks.png"
-      },
-      {
-      "team": "Detroit",
-      "logo": "stylesheets/nbalogos/DET.png"
-      }
-    ]
-  },
-  {
-    "matchupId": 3,
-    "selectedTeam": "",
-    "matchupWinner": "Golden State",
-    "nbaTeams": [
-      {
-      "team": "Golden State",
-      "logo": "stylesheets/nbalogos/GSW.png"
-      },
-      {
-      "team": "Memphis",
-      "logo": "stylesheets/nbalogos/Memphis-Grizzlies.png"
-      }
-    ]
-  },
-  {
-    "matchupId": 4,
-    "selectedTeam": "",
-    "matchupWinner": "Oklahoma City",
-    "nbaTeams": [
-      {
-      "team": "Oklahoma City",
-      "logo": "stylesheets/nbalogos/OKC-Thunder.png"
-      },
-      {
-      "team": "Pheonix",
-      "logo": "stylesheets/nbalogos/Pheonix-Suns.jpg"
-      }
-    ]
-  },
-  {
-    "matchupId": 5,
-    "selectedTeam": "",
-    "matchupWinner": "Utah",
-    "nbaTeams": [
-      {
-      "team": "Sacremento",
-      "logo": "stylesheets/nbalogos/Sacremento-Kings.jpg"
-      },
-      {
-      "team": "Utah",
-      "logo": "stylesheets/nbalogos/Utah-Jazz.jpg"
-      }
-    ]
-  }
+	{
+	"_id": "1",
+	"matchups": [
+			{
+		    "matchupId": 1,
+		    "selectedTeam": "",
+		    "matchupWinner": "Atlanta",
+		    "nbaTeams": [
+		      {
+		      "team": "Portland",
+		      "logo": "stylesheets/nbalogos/Portland-Trail-Blazers-Logo.png"
+		      },
+		      {
+		      "team": "Atlanta",
+		      "logo": "stylesheets/nbalogos/atl-hawks.png"
+		      }
+		    ]
+		   },
+		  {
+		    "matchupId": 2,
+		    "selectedTeam": "",
+		    "matchupWinner": "Dallas",
+		    "nbaTeams": [
+		      {
+		      "team": "Dallas",
+		      "logo": "stylesheets/nbalogos/Dallas-Mavericks.png"
+		      },
+		      {
+		      "team": "Detroit",
+		      "logo": "stylesheets/nbalogos/DET.png"
+		      }
+		    ]
+		  },
+		  {
+		    "matchupId": 3,
+		    "selectedTeam": "",
+		    "matchupWinner": "Golden State",
+		    "nbaTeams": [
+		      {
+		      "team": "Golden State",
+		      "logo": "stylesheets/nbalogos/GSW.png"
+		      },
+		      {
+		      "team": "Memphis",
+		      "logo": "stylesheets/nbalogos/Memphis-Grizzlies.png"
+		      }
+		    ]
+		  },
+		  {
+		    "matchupId": 4,
+		    "selectedTeam": "",
+		    "matchupWinner": "Oklahoma City",
+		    "nbaTeams": [
+		      {
+		      "team": "Oklahoma City",
+		      "logo": "stylesheets/nbalogos/OKC-Thunder.png"
+		      },
+		      {
+		      "team": "Pheonix",
+		      "logo": "stylesheets/nbalogos/Pheonix-Suns.jpg"
+		      }
+		    ]
+		  },
+		  {
+		    "matchupId": 5,
+		    "selectedTeam": "",
+		    "matchupWinner": "Utah",
+		    "nbaTeams": [
+		      {
+		      "team": "Sacremento",
+		      "logo": "stylesheets/nbalogos/Sacremento-Kings.jpg"
+		      },
+		      {
+		      "team": "Utah",
+		      "logo": "stylesheets/nbalogos/Utah-Jazz.jpg"
+		      }
+		    ]
+  		}
+   ]
+ },
+	 {
+		"_id": "2"
+	}
 ]

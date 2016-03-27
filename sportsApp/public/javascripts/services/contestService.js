@@ -4,23 +4,16 @@
 
   var app = angular.module("sportsApp.services.contest", []);
 
-  app.factory("contestService", ["$http","$q",
-  function($http, $q)
+  app.factory("contestService", ["$http",
+  function($http)
   {
-      return {
-        getMatchups: function()
-        {
-          var deffered = $q.defer(),
-          httpPromise = $http.get("api/firstContestList.json");
+    var contestAPI = {};
 
-          httpPromise.success(function (matchups) {
-            deffered.resolve(matchups);
-          })
-          .error(function (error) {
-            console.error("Error: " + error)
-          });
-          return deffered.promise;
-        }
-      };
+    contestAPI.get = function() {
+      return $http.get("api/firstContestList.json")
+    }
+
+    return contestAPI;
+
   }]);
 })();

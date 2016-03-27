@@ -9,15 +9,16 @@
   var Matchup = mongoose.model("Matchup");
   var User = mongoose.model("User");
 
-router.get("/public/api/firstContestList.json"), function(req, res)
+router.route("/contests")
+  .get(function(req, res, next)
     {
-      Matchup.find(function (err, matchups) {
-        if (err)
-        res.send(err);
-
-        res.json(matchups);
+      Contest.find(function(err, contests) {
+        if(err) {
+          return next(err);
+        }
+        response.json(contests);
       });
-    };
+    });
 
   module.exports = router;
 })();

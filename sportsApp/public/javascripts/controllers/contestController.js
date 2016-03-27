@@ -1,4 +1,4 @@
-(function ()
+(function()
 {
   "use strict";
 
@@ -6,14 +6,26 @@
 
   app.config(["$stateProvider", function($stateProvider)
   {
-    $stateProvider.state("contest",
+    $stateProvider.state("contests",
     {
       parent: "root",
-      url: "/contest",
+      url: "/contests",
       views: {
         "container@":
         {
-          templateUrl: "partials/contest",
+          templateUrl: "partials/contests.ejs",
+          controller: "ContestListController"
+        }
+      }
+    })
+    .state("contest",
+    {
+      parent: "root",
+      url: "/contest/:contestId",
+      views: {
+        "container@":
+        {
+          templateUrl: "partials/contest.ejs",
           controller: "ContestController"
         }
       }
@@ -21,19 +33,19 @@
   }
 ]);
 
-app.controller("ContestController", ["$scope","contestService", "authService",
-function($scope, contestService, authService)
+app.controller("ContestListController", ["$scope", "contestService", function($scope, contestService)
 {
+  contestService.get().success(function (data) {
+    $scope.contests = data;
+  });
+}]);
 
-  $scope.contest = contestService.getMatchups()
-  .then(function (matchups) {
-    $scope.contest = matchups;
-  }, function (error) {
-    console.error(error);
-  })
-
-  $scope.isLoggedIn = authService.isLoggedIn;
-  $scope.user = authService.currentUser();
-
+app.controller("ContestController", ["$scope","contestService", "$stateParams", "$filter",
+function($scope, contestService, $stateParams, $filter)
+{
+  $scope._id = $stateParams.contestId;
+  contestService.get().success(function (data) {
+    $scope.contest = $filter('filter')(data, {id: parseInt($scope._id)}, true, [0]);
+      });
 }]);
 })();

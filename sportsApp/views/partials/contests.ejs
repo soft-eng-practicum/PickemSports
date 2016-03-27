@@ -1,5 +1,8 @@
 <div class="page-header">
 </div>
-<div ng-repeat="contest in contests">
-  {{contest}}
-</div>
+<ul>
+  <li ng-repeat="contest in contests">
+    <a ui-sref="contest({contestId: 1})">{{contest._id}}</a>
+    {{contest.matchups}}
+  </li>
+</ul>

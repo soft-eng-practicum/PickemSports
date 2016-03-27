@@ -2,6 +2,7 @@ var mongoose = require("mongoose");
 
 var ContestSchema = new mongoose.Schema(
   {
+    _id: Number,
     matchups: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Matchup"
@@ -9,8 +10,7 @@ var ContestSchema = new mongoose.Schema(
     usersWhoJoined: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User"
-    },
-    contestId: Number
+    }
   });
 
 

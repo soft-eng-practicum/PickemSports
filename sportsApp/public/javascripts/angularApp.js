@@ -15,7 +15,6 @@
 		"sportsApp.services.nba",
 		"sportsApp.services.contest",
 		"ui.router",
-		"ngResource",
 		"angularMoment"
 	]);
 
