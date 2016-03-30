@@ -9,8 +9,8 @@
   {
     var contestAPI = {};
 
-    contestAPI.get = function() {
-      return $http.get("api/firstContestList.json")
+    contestAPI.getFirst = function() {
+      return $http.get("contests/1.json")
     }
 
     return contestAPI;

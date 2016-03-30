@@ -15,14 +15,6 @@
       res.json(nbateams);
     });
   });
-
-  router.post("/", function(req, res, next)
-  {
-    Nbateam.create(req.body, function(err, post)
-  {
-    if(err) return next(err);
-    res.json(post);
-  });
-});
+  
   module.exports = router;
 })();
