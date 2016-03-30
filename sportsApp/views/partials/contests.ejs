@@ -1,6 +1,14 @@
 <div class="page-header">
 </div>
-{{contests || json}}
+
+{{contest || json}}
+{{matchup || json}}
+
+<div ng-repeat="matchup in contest.matchups">
+  {{matchup.matchupId}}
+</div>
+
+
 <table id="nbateams">
  <tr>
    <th>Home Team</th>

@@ -7,13 +7,25 @@
   app.factory("contestService", ["$http",
   function($http)
   {
-    var contestAPI = {};
+    var o = {
+      contests: []
+    };
 
-    contestAPI.getFirst = function() {
-      return $http.get("contests/1.json")
+    function getAll() {
+      return $http.get("/contests").then(function(res) {
+        angular.copy(res.data, o.contests);
+      });
     }
 
-    return contestAPI;
+    function get(_id) {
+      return $http.get("/contests/" + _id).then(function(res) {
+        return res.data;
+      });
+    }
 
+    o.getAll = getAll;
+    o.get = get;
+
+    return o;
   }]);
 })();

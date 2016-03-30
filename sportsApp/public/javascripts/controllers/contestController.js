@@ -4,39 +4,28 @@
 
   var app = angular.module("sportsApp.controllers.contest", ["ui.router"]);
 
-  app.config(["$stateProvider", function($stateProvider)
-  {
-    $stateProvider.state("contests",
-    {
+  app.config(["$stateProvider", function($stateProvider) {
+    $stateProvider.state("contest", {
       parent: "root",
-      url: "/contests",
+      url: "/contests/{_id}",
       views: {
-        "container@":
-        {
-          templateUrl: "partials/contests.ejs",
+        "container@": {
+          templateUrl: "partials/contests",
           controller: "ContestController"
         }
-      }
-    })
-    .state("contest",
-    {
-      url: "/contest",
-      views: {
-        "container@":
-        {
-          templateUrl: "partials/contest.ejs",
-          controller: "ContestController"
-        }
+      },
+      resolve: {
+        contest: [
+          "$stateParams", "contestService", function($stateParams, contestService) {
+            return contestService.get($stateParams._id);
+          }
+        ]
       }
     });
   }
 ]);
 
-app.controller("ContestController", ["$scope","contestService", "$stateParams", "$filter",
-function($scope, contestService, $stateParams, $filter)
-{
-  contestService.getFirst().success(function(data) {
-    $scope.contest = data;
-  })
+app.controller("ContestController", ["$scope","contestService", "contest", function($scope, contestService, contest) {
+  $scope.contest = contest;
 }]);
 })();
