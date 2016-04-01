@@ -25,9 +25,9 @@
   </section>
 </div>
 <div ng-show="isLoggedIn">
+  {{contests || json}}
   <div ng-repeat="contest in contests">
-      <p>Contest Id: {{contest._id}}</p>
-         <a ui-sref="contest({ _id:contest._id })"> Go
-         </a>
+      <p>Contest Id: {{contest.id}}</p>
+         <span><a ui-sref="contests({id: contest.id})"> Go </a></span>
        </div>
      </div>

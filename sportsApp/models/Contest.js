@@ -2,15 +2,16 @@ var mongoose = require("mongoose");
 
 var ContestSchema = new mongoose.Schema(
   {
-    _id: Number,
-    matchups: {
+    id: Number,
+    tags: String,
+    matchups: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: "Matchup"
-    },
-    usersWhoJoined: {
+    }],
+    usersWhoJoined: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: "User"
-    }
+    }]
   });
 
 

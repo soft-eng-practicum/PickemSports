@@ -2,10 +2,10 @@ var mongoose = require("mongoose");
 
 var MatchupSchema = new mongoose.Schema(
   {
-    nbaTeams: {
+    nbaTeams: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: "nbaTeams"
-    },
+    }],
     selectedTeam: String,
     startDate: String
   });

@@ -10,6 +10,7 @@ var mongoose = require("mongoose");
 require("./models/Users");
 require("./models/Nbateam");
 require("./models/Contest");
+require("./models/Matchup");
 
 
 var passport = require("passport");

@@ -1,11 +1,10 @@
-(function()
-{
+(function() {
   "use strict";
 
   var app = angular.module("sportsApp.services.contest", []);
 
-  app.factory("contestService", ["$http",
-  function($http)
+  app.factory("contestService", ["$http", "$resource",
+  function($http, $resource)
   {
     var o = {
       contests: []
@@ -17,10 +16,8 @@
       });
     }
 
-    function get(_id) {
-      return $http.get("/contests/" + _id).then(function(res) {
-        return res.data;
-      });
+    function get(id) {
+      return $resource('/contests/:id');
     }
 
     o.getAll = getAll;

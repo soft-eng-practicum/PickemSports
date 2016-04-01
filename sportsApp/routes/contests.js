@@ -22,34 +22,15 @@
       });
     });
 
-router.route("/contests/:contest")
+router.route("/contests/:id")
   .get(function(req, res, next) {
-    Contest.populate(contest, {
-      path: "matchups",
-    }).then(function(contest) {
-      Matchups.populate(matchups, {
-        path: "nbaTeams",
-        select: "team"
-      }).then(function(matchups) {
-        res.json(contest);
-      });
-    });
+    Contest.findOne({id: req.params.id}, function(err, contest) {
+      if(err) {
+        res.send(err);
+      }
+      res.send(contest);
+    })
   });
-
-router.param("contest", function(req, res, next, _id) {
-  var query = Contest.findById(_id);
-
-  query.exec(function(err, contest) {
-    if(err) {
-      return next(err);
-    }
-    if(!contest) {
-      return next(new Error("cannot find the contest"));
-    }
-    req.contest = contest;
-    return next();
-  });
-});
 
   module.exports = router;
 })();

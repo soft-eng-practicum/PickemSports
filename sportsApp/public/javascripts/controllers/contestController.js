@@ -5,27 +5,21 @@
   var app = angular.module("sportsApp.controllers.contest", ["ui.router"]);
 
   app.config(["$stateProvider", function($stateProvider) {
-    $stateProvider.state("contest", {
+    $stateProvider.state("contests", {
       parent: "root",
-      url: "/contests/{_id}",
+      url: "/contests/:id",
       views: {
         "container@": {
           templateUrl: "partials/contests",
           controller: "ContestController"
         }
-      },
-      resolve: {
-        contest: [
-          "$stateParams", "contestService", function($stateParams, contestService) {
-            return contestService.get($stateParams._id);
-          }
-        ]
       }
     });
   }
 ]);
 
-app.controller("ContestController", ["$scope","contestService", "contest", function($scope, contestService, contest) {
-  $scope.contest = contest;
+app.controller("ContestController", ["$scope","contestService", "$stateParams", function($scope, contestService, $stateParams) {
+  var contest_id = $stateParams.id;
+  $scope.contest = contestService.get({id: contest_id});
 }]);
 })();
