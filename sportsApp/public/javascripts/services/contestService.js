@@ -17,7 +17,7 @@
     }
 
     function get(id) {
-      return $resource('/contests/:id');
+      return $resource('/contests/' + id);
     }
 
     o.getAll = getAll;

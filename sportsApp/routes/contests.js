@@ -28,9 +28,9 @@ router.route("/contests/:id")
       if(err) {
         res.send(err);
       }
-      res.send(contest);
-    })
+      res.json(contest);
   });
+});
 
   module.exports = router;
 })();
