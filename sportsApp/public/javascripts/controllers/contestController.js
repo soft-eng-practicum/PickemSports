@@ -13,14 +13,22 @@
           templateUrl: "partials/contests",
           controller: "ContestController"
         }
-      }
+      },
+      resolve: {
+  contest: [
+    "$stateParams",
+    "contestService",
+    function($stateParams, contestService) {
+      return contestService.get($stateParams.id);
+    }
+  ]
+}
     });
   }
 ]);
 
-app.controller("ContestController", ["$scope","contestService", "$stateParams", function($scope, contestService, $stateParams) {
-  var contest_id = $stateParams.id;
-  $scope.contest = contestService.get({id: contest_id});
-  console.log(contest_id);
+app.controller("ContestController", ["$scope","contest", "$stateParams", function($scope, contest, $stateParams) {
+  // Routing info
+  $scope.contest = contest;
 }]);
 })();

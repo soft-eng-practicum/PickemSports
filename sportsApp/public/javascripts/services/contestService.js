@@ -17,7 +17,9 @@
     }
 
     function get(id) {
-      return $resource('/contests/' + id);
+        return $http.get("/contests/" + id).then(function(res) {
+          return res.data;
+        });
     }
 
     o.getAll = getAll;

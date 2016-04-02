@@ -1,0 +1,51 @@
+{
+  "id": 1,
+  "tags": "NBA",
+  "matchups": [
+    {
+      "matchupId": 1,
+      "homeTeam": "Portland",
+      "homeLogo": "stylesheets/nbalogos/Portland-Trail-Blazers-Logo.png",
+      "awayTeam": "Atlanta",
+      "awayLogo": "stylesheets/nbalogos/atl-hawks.png",
+      "selectedTeam": "",
+      "matchupWinner": ""
+    },
+    {
+      "matchupId": 2,
+      "homeTeam": "Dallas",
+      "homeLogo": "stylesheets/nbalogos/Dallas-Mavericks.png",
+      "awayTeam": "Detroit",
+      "awayLogo": "stylesheets/nbalogos/DET.png",
+      "selectedTeam": "",
+      "matchupWinner": ""
+    },
+    {
+      "matchupId": 3,
+      "homeTeam": "Golden State",
+      "homeLogo": "stylesheets/nbalogos/GSW.png",
+      "awayTeam": "Memphis",
+      "awayLogo": "stylesheets/nbalogos/Memphis-Grizzlies.png",
+      "selectedTeam": "",
+      "matchupWinner": ""
+    },
+    {
+      "matchupId": 4,
+      "homeTeam": "Oklahoma City",
+      "homeLogo": "stylesheets/nbalogos/OKC-Thunder.png",
+      "awayTeam": "Pheonix",
+      "awayLogo": "stylesheets/nbalogos/Pheonix-Suns.jpg",
+      "selectedTeam": "",
+      "matchupWinner": ""
+    },
+    {
+      "matchupId": 5,
+      "homeTeam": "Utah",
+      "homeLogo": "stylesheets/nbalogos/Utah-Jazz.jpg",
+      "awayTeam": "Sacremento",
+      "awayLogo": "stylesheets/nbalogos/Sacremento-Kings.jpg",
+      "selectedTeam": "",
+      "matchupWinner": ""
+    }
+  ]
+}

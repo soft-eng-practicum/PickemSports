@@ -12,13 +12,7 @@
         if(err) {
           return next(err);
         }
-
-        Contest.populate(contests, {
-          path: "matchups",
-          select: "nbaTeams"
-        }).then(function(contests) {
-          res.json(contests);
-        });
+        res.json(contests);
       });
     });
 
