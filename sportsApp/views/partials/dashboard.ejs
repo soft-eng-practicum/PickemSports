@@ -1,7 +1,7 @@
 <div class="page-header">
 </div>
 
-<div ng-hide="isLoggedIn">
+<div ng-show="isLoggedIn">
   <section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background"
   id="header1-1" style="background-image: url(stylesheets/images/bsktball-1280x960-9.jpg);">
     <div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-center mbr-after-navbar">
@@ -24,7 +24,7 @@
     </div>
   </section>
 </div>
-<div ng-show="isLoggedIn">
+<div ng-hide="isLoggedIn">
   <div ng-repeat="contest in contests">
       <p>Contest Id: {{contest.id}}</p>
          <span><a ui-sref="contest({id: contest.id})"> Go </a></span>
