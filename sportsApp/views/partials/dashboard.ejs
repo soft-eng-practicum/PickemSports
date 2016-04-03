@@ -15,7 +15,9 @@
                       <br>
                       <span ng-hide="isLoggedIn()">Please login or register to compete!</span>
                       <span ng-show="isLoggedIn()">Click the Contests button to view upcoming contests!</span>
-                      <a class="mbr-buttons__btn btn btn-default" ng-show="isLoggedIn()" href="" ng-click="contestList">View Contests
+                      <br>
+                      <br>
+                      <a class="mbr-buttons__btn btn btn-default" ng-show="isLoggedIn()" ui-sref="contestList">View Contests
                       </a>
                 </div>
               </div>

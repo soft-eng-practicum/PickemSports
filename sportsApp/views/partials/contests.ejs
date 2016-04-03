@@ -2,51 +2,31 @@
 </div>
 
 {{contest.participants}}
-
-<table id="nbateams">
-  <tr>
-    <th>Home Team</th>
-    <th>Away Team</th>
-    <th>Selected Team</th>
-    <th>Winning Team</th>
-  </tr>
-  <tr ng-repeat="matchup in contest.matchups">
-    <td>
+{{contest.usersWhoJoined}}
+<form name="contestForm" ng-submit="submitPicks()">
+  <table id="nbateams">
+    <tr>
+      <th>Home Team</th>
+      <th>Away Team</th>
+      <th>Selected Team</th>
+      <th>Winning Team</th>
+    </tr>
+    <tr ng-repeat="matchup in contest.matchups">
+      <td>
+        <input type="radio" name="matchup_{{matchup.matchupId}}" ng-model="matchup.selectedTeam" ng-value="matchup.homeTeam">
         <img ng-src="{{matchup.homeLogo}}">
         <br>
         {{matchup.homeTeam}}
-    </td>
-    <td>
-      <img ng-src="{{matchup.awayLogo}}">
-      <br>
-      {{matchup.awayTeam}}</td>
-      <td>{{matchup.selectedTeam}}</td>
-      <td>{{matchup.winningTeam}}</td>
-  </tr>
-</table>
-<button type="submit" class="btn btn-success" ng-click="incrementParticpants(contest)">Submit Picks</button>
-
-
-
-<table id="nbateams">
- <tr>
-   <th>Home Team</th>
-   <th>Away Team</th>
-   <th>Selected Team</th>
-   <th>Winning Team</th>
- <tr ng-repeat="matchup in contest.matchups">
-   <td ng-repeat="nbaTeams in matchup.nbaTeams">
-     <input type="radio" ng-model="$parent.matchup.selectedTeam" name="matchup{{matchup.matchupId}}"
-     ng-value="nbaTeams.team"/>
-     <img ng-src="{{nbaTeams.logo}}"> {{nbaTeams.team}} : {{nbaTeams.teamScore}}
-   </td>
-   <td>
-     <strong ng-show="showPicks">{{matchup.selectedTeam}}</strong>
-   </td>
-   <td ng-show="checked">
-     {{matchup.matchupWinner}}
-   </td>
- </tr>
-</table>
-<br>
-Click Here to Check Winner! <input type="checkbox" ng-model="checked" aria-label="Toggle ngShow">
+      </td>
+      <td>
+        <input type="radio" name="matchup_{{matchup.matchupId}}" ng-model="matchup.selectedTeam" ng-value="matchup.awayTeam">
+        <img ng-src="{{matchup.awayLogo}}">
+        <br>
+        {{matchup.awayTeam}}</td>
+        <td>{{matchup.selectedTeam}}</td>
+        <td>{{matchup.winningTeam}}</td>
+    </tr>
+  </table>
+  <button type="submit" value="submit picks" class="btn btn-success">Submit Picks</button>
+</form>
+{{selectedTeams}}

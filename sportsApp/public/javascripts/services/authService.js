@@ -1,50 +1,40 @@
-(function()
-{
+(function() {
   "use strict";
 
   var app = angular.module("sportsApp.services.auth", []);
 
-  app.factory("authService", ["$http", "$window", function($http, $window)
-  {
+  app.factory("authService", ["$http", "$window", function($http, $window) {
     var auth = {};
 
-    function saveToken(token)
-    {
+    function saveToken(token) {
       $window.localStorage["sportsApp-token"] = token;
     }
 
-    function getToken()
-    {
+    function getToken() {
       return $window.localStorage["sportsApp-token"];
     }
 
-    function isLoggedIn()
-    {
+    function isLoggedIn() {
       var token = auth.getToken();
 
-      if(token)
-      {
+      if(token) {
         var payload = JSON.parse($window.atob(token.split(".")[1]));
         return payload.exp > Date.now() / 1000;
       }
-      else
-      {
+      else {
         return false;
       }
     }
 
-    function currentUser()
-    {
-      if(auth.isLoggedIn())
-      {
+    function currentUser() {
+      if(auth.isLoggedIn()) {
         var token = auth.getToken();
         var payload = JSON.parse($window.atob(token.split(".")[1]));
         return payload.username;
       }
     }
 
-    function currentUserId()
-    {
+    function currentUserId() {
       if(auth.isLoggedIn())
       {
         var token = auth.getToken();
@@ -53,24 +43,21 @@
       }
     }
 
-    function register(user)
-    {
+    function register(user) {
       return $http.post("/register", user).success(function(data)
       {
         auth.saveToken(data.token);
       });
     }
 
-    function logIn(user)
-    {
+    function logIn(user) {
       return $http.post("/login", user).success(function(data)
       {
         auth.saveToken(data.token);
       });
     }
 
-    function logOut()
-    {
+    function logOut() {
       $window.localStorage.removeItem("sportsApp-token");
     }
 
@@ -82,7 +69,7 @@
     auth.register = register;
     auth.logIn = logIn;
     auth.logOut = logOut;
-    
+
 
     return auth;
   }]);

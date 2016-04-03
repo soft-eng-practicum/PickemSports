@@ -1,5 +1,4 @@
-(function()
-{
+(function() {
   "use strict";
 
   var app = angular.module("sportsApp.controllers.contest", ["ui.router"]);
@@ -30,6 +29,7 @@
 app.controller("ContestController", ["$scope","contest", "authService", function($scope, contest, authService) {
   $scope.isLoggedIn = authService.isLoggedIn;
   $scope.contest = contest;
+  $scope.selectedTeams = [];
 
   function incrementParticipants(contest) {
     contestService.participate(contest);
@@ -39,7 +39,19 @@ app.controller("ContestController", ["$scope","contest", "authService", function
     return contest.usersWhoJoined.indexOf(authService.currentUserId()) != -1;
   }
 
+  function getUsersWhoJoined(contest) {
+    return contest.usersWhoJoined;
+  }
+
+  function submitPicks() {
+    angular.forEach($scope.contest.matchups, function(matchup) {
+      $scope.selectedTeams.push(matchup.selectedTeam);
+    });
+  }
+
   $scope.incrementParticipants = incrementParticipants;
   $scope.isParticipatedByCurrentUser = isParticipatedByCurrentUser;
+  $scope.getUsersWhoJoined = getUsersWhoJoined;
+  $scope.submitPicks = submitPicks;
 }]);
 })();

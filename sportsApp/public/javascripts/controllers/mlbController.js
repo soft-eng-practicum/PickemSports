@@ -1,18 +1,14 @@
-(function()
-{
+(function() {
   "use strict";
 
   var app = angular.module("sportsApp.controllers.mlb", ["ui.router"]);
 
-  app.config(["$stateProvider", function($stateProvider)
-  {
-    $stateProvider.state("mlb",
-    {
+  app.config(["$stateProvider", function($stateProvider) {
+    $stateProvider.state("mlb", {
       parent: "root",
       url: "/mlb",
       views: {
-        "container@":
-        {
+        "container@": {
           templateUrl: "partials/mlb",
         }
       }
