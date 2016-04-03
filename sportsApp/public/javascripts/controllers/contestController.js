@@ -31,14 +31,15 @@ app.controller("ContestController", ["$scope","contest", "authService", function
   $scope.isLoggedIn = authService.isLoggedIn;
   $scope.contest = contest;
 
-  $scope.pickMatchup = function(selectedTeam) {
-    var team = '';
-    if(selectedTeam === 'home') {
-      team = this.matchup.home;
-    } else if (selectedTeam === 'away') {
-      team = this.matchup.away;
-    }
-
+  function incrementParticipants(contest) {
+    contestService.participate(contest);
   }
+
+  function isParticipatedByCurrentUser(contest) {
+    return contest.usersWhoJoined.indexOf(authService.currentUserId()) != -1;
+  }
+
+  $scope.incrementParticipants = incrementParticipants;
+  $scope.isParticipatedByCurrentUser = isParticipatedByCurrentUser;
 }]);
 })();

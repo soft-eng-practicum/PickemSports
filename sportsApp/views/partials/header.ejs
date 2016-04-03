@@ -23,44 +23,27 @@ mbr-navbar--sticky mbr-navbar--auto-collapse" id="menu-0">
       <div class="mbr-navbar__column mbr-navbar__menu">
         <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
           <div class="mbr-navbar__column">
-            <ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
-              <li class="mbr-navbar__item">
-                <p class="mbr-buttons__link btn text-white">Welcome {{ currentUser() }}
-                </p>
-              <li class="mbr-navbar__item">
-                <a class="mbr-buttons__link btn text-white" ui-sref="mlb">MLB
-                </a>
-              <li class="mbr-navbar__item">
-                <a class="mbr-buttons__link btn text-white" ui-sref="nhl">NHL
-                </a>
-              <li class="mbr-navbar__item">
-                <a class="mbr-buttons__link btn text-white" ui-sref="nfl">NFL
-                </a>
-              <li class="mbr-navbar__item">
-                <a class="mbr-buttons__link btn text-white" ui-sref="nba">NBA
-                </a>
-              <li class="mbr-navbar__item">
-                <a class="mbr-buttons__link btn text-white" ui-sref="dashboard">Dashboard
-                </a>
-              </li>
-              <li class="mbr-navbar__item" ng-hide="isLoggedIn()">
-                <a class="mbr-buttons__link btn text-white" ui-sref="register">Register
-                </a>
-              </li>
-              <li class="mbr-navbar__item" ng-hide="isLoggedIn()">
-                <a class="mbr-buttons__link btn text-white" ui-sref="login">Login
-                </a>
-              </li>
-              <li class="mbr-navbar__item" ng-show="isLoggedIn()">
-                <a class="mbr-buttons__link btn text-white" href="" ng-click="logOut()">Log Out
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="mbr-navbar__column">
             <ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-inverse mbr-buttons--active">
               <li class="mbr-navbar__item">
+                <p class="mbr-buttons__link btn text-white" ng-show="isLoggedIn()">Welcome {{ currentUser() }}
+                </p>
                 <a class="mbr-buttons__btn btn btn-default" ui-sref="contestList">Contests
+                </a>
+                <a class="mbr-buttons__btn btn btn-default" ui-sref="dashboard">Dashboard
+                </a>
+                <a class="mbr-buttons__btn btn btn-default" ui-sref="nba">NBA Teams
+                </a>
+                <a class="mbr-buttons__btn btn btn-default" ui-sref="mlb">MLB Teams
+                </a>
+                <a class="mbr-buttons__btn btn btn-default" ui-sref="nhl">NHL Teams
+                </a>
+                <a class="mbr-buttons__btn btn btn-default" ui-sref="nfl">NFL Teams
+                </a>
+                <a class="mbr-buttons__btn btn btn-default" ng-hide="isLoggedIn()" ui-sref="register">Register
+                </a>
+                <a class="mbr-buttons__btn btn btn-default" ng-hide="isLoggedIn()" ui-sref="login">Login
+                </a>
+                <a class="mbr-buttons__btn btn btn-default" ng-show="isLoggedIn()" href="" ng-click="logOut()">Log Out
                 </a>
               </li>
             </ul>

@@ -5,6 +5,12 @@
   var router = express.Router();
   var mongoose = require("mongoose");
   var Contest = mongoose.model("Contest");
+  var User = mongoose.model("User");
+  var jwt = require("express-jwt");
+  var auth = jwt({
+    secret: "SECRET",
+    userProperty: "payload"
+  });
 
   router.route("/contests")
     .get(function(req, res, next) {
@@ -16,15 +22,25 @@
       });
     });
 
-router.route("/contests/:id")
-  .get(function(req, res, next) {
-    Contest.findOne({id: req.params.id}, function(err, contest) {
-      if(err) {
-        res.send(err);
-      }
-      res.json(contest);
+  router.route("/contests/:id")
+    .get(function(req, res, next) {
+      Contest.findOne({id: req.params.id}, function(err, contest) {
+        if(err) {
+          return next(err);
+        }
+        res.json(contest);
+    });
   });
-});
+
+  router.route("/contests/:id/participate")
+    .put(auth, function(req, res, next) {
+      req.contest.participate(req.payload, function(err, contest) {
+        if(err) {
+          return next(err);
+        }
+        res.json(contest);
+      });
+    });
 
   module.exports = router;
 })();

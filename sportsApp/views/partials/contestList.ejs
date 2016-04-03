@@ -1,9 +1,25 @@
 <div class="page-header">
 </div>
 
-<div ng-show="isLoggedIn">
-  <div ng-repeat="contest in contests">
-      <p>Contest Id: {{contest.id}}</p>
-         <span><a ui-sref="contest({id: contest.id})"> Go </a></span>
-  </div>
+<br>
+<br>
+<div ng-show="isLoggedIn()">
+  <h3>Upcoming Contest List</h3>
+    <table id="nbateams">
+    		<tr>
+    			<th>Contest ID</</th>
+    			<th>League(s) Included</th>
+    			<th>Number of Participants</th>
+    			<th>Number of Matchups</th>
+    		</tr>
+        <tr ng-repeat="contest in contests">
+        <td>{{contest.id}}</td>
+        <td>{{contest.tags}}</td>
+        <td>{{contest.participants}}</td>
+        <td></td>
+        <td><button class="btn btn-primary" ng-click=incrementParticipants(contest) ui-sref="contest({id: contest.id})">Join<td>
+    </table>
+</div>
+<div ng-hide="isLoggedIn()">
+  <h1>You need to login or register to particpate in contests</h1>
 </div>

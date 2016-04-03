@@ -1,7 +1,6 @@
 <div class="page-header">
 </div>
 
-<div ng-show="isLoggedIn">
   <section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background"
   id="header1-1" style="background-image: url(stylesheets/images/bsktball-1280x960-9.jpg);">
     <div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-center mbr-after-navbar">
@@ -14,8 +13,10 @@
                   <h1 class="mbr-hero__text">Welcome to PickEm' Sports</h1>
                     <p class="mbr-hero__subtext">We provide a web platform in order for users to compete amongst other users in choosing the winners in a particular set of matchups.</p>
                       <br>
-                      <span ng-hide="isLoggedIn">Please login or register to compete!</span>
-                      <span ng-show="isLoggedIn">Click the Contests button to view upcoming contests!</span>
+                      <span ng-hide="isLoggedIn()">Please login or register to compete!</span>
+                      <span ng-show="isLoggedIn()">Click the Contests button to view upcoming contests!</span>
+                      <a class="mbr-buttons__btn btn btn-default" ng-show="isLoggedIn()" href="" ng-click="contestList">View Contests
+                      </a>
                 </div>
               </div>
             </div>
@@ -24,4 +25,3 @@
       </div>
     </div>
   </section>
-</div>

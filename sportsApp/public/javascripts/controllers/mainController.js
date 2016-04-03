@@ -12,13 +12,6 @@
           templateUrl: "partials/dashboard",
           controller: "MainController"
         }
-      },
-      resolve: {
-        getContestsPromise: [
-          "contestService", function(contestService) {
-            return contestService.getAll();
-          }
-        ]
       }
     });
   }]);

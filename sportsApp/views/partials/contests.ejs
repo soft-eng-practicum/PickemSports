@@ -1,6 +1,8 @@
 <div class="page-header">
 </div>
 
+{{contest.participants}}
+
 <table id="nbateams">
   <tr>
     <th>Home Team</th>
@@ -10,11 +12,9 @@
   </tr>
   <tr ng-repeat="matchup in contest.matchups">
     <td>
-      <div ng-click="pickMatchup('home'); homeClicked='clicked'; awayClicked='';" ng-model="matchuo" ng-class="homeClicked">
         <img ng-src="{{matchup.homeLogo}}">
         <br>
         {{matchup.homeTeam}}
-        <i class = "icon ion-checkmark"></i>
     </td>
     <td>
       <img ng-src="{{matchup.awayLogo}}">
@@ -24,6 +24,7 @@
       <td>{{matchup.winningTeam}}</td>
   </tr>
 </table>
+<button type="submit" class="btn btn-success" ng-click="incrementParticpants(contest)">Submit Picks</button>
 
 
 
@@ -47,6 +48,5 @@
    </td>
  </tr>
 </table>
-<button type="submit" class="btn btn-primary" ng-click="showPicks=true">Submit Picks</button>
 <br>
 Click Here to Check Winner! <input type="checkbox" ng-model="checked" aria-label="Toggle ngShow">

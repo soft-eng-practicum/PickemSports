@@ -23,7 +23,7 @@ var ContestSchema = new mongoose.Schema(
     }]
   });
 
-ContestSchema.methods.particpate = function(user, callback) {
+ContestSchema.methods.participate = function(user, callback) {
   if (this.usersWhoJoined.indexOf(user._id) == -1) {
     this.usersWhoJoined.push(user._id);
     this.participants++;
