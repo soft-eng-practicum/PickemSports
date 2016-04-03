@@ -9,10 +9,15 @@
     <th>Winning Team</th>
   </tr>
   <tr ng-repeat="matchup in contest.matchups">
-    <td><img ng-src="{{matchup.homeLogo}}">
-      <br>
-      {{matchup.homeTeam}}</td>
-    <td><img ng-src="{{matchup.awayLogo}}">
+    <td>
+      <div ng-click="pickMatchup('home'); homeClicked='clicked'; awayClicked='';" ng-model="matchuo" ng-class="homeClicked">
+        <img ng-src="{{matchup.homeLogo}}">
+        <br>
+        {{matchup.homeTeam}}
+        <i class = "icon ion-checkmark"></i>
+    </td>
+    <td>
+      <img ng-src="{{matchup.awayLogo}}">
       <br>
       {{matchup.awayTeam}}</td>
       <td>{{matchup.selectedTeam}}</td>

@@ -11,6 +11,7 @@
 		"sportsApp.controllers.mlb",
 		"sportsApp.controllers.nhl",
 		"sportsApp.controllers.contest",
+		"sportsApp.controllers.list",
 		"sportsApp.services.auth",
 		"sportsApp.services.nba",
 		"sportsApp.services.contest",

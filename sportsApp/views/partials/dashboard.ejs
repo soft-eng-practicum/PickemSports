@@ -12,9 +12,10 @@
               <div class=" col-sm-8 col-sm-offset-2">
                 <div class="mbr-hero animated fadeInUp">
                   <h1 class="mbr-hero__text">Welcome to PickEm' Sports</h1>
-                    <p class="mbr-hero__subtext">We provide a web platform in order for users to compete amongst other users in choosing the winners in a particular set of matchups.
+                    <p class="mbr-hero__subtext">We provide a web platform in order for users to compete amongst other users in choosing the winners in a particular set of matchups.</p>
                       <br>
-                      <span ng-hide="isLoggedIn()">Please login or register to compete!</span>
+                      <span ng-hide="isLoggedIn">Please login or register to compete!</span>
+                      <span ng-show="isLoggedIn">Click the Contests button to view upcoming contests!</span>
                 </div>
               </div>
             </div>
@@ -24,9 +25,3 @@
     </div>
   </section>
 </div>
-<div ng-hide="isLoggedIn">
-  <div ng-repeat="contest in contests">
-      <p>Contest Id: {{contest.id}}</p>
-         <span><a ui-sref="contest({id: contest.id})"> Go </a></span>
-       </div>
-     </div>

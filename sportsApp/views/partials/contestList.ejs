@@ -1,0 +1,9 @@
+<div class="page-header">
+</div>
+
+<div ng-show="isLoggedIn">
+  <div ng-repeat="contest in contests">
+      <p>Contest Id: {{contest.id}}</p>
+         <span><a ui-sref="contest({id: contest.id})"> Go </a></span>
+  </div>
+</div>
