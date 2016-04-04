@@ -3,5 +3,5 @@ node_js:
   - "5.8.0"
 services:
   - mongodb
-  before_install:
+before_install:
   - cd sportsApp
