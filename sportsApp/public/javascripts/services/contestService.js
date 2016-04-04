@@ -23,11 +23,11 @@
     }
 
     function participate(contest) {
-      return $http.put("/contests/" + contest.id + "/participate", null, {
+      return $http.put("/contests/" + contest._id + "/participate", null, {
         headers: {
           Authorization: "Bearer " + authService.getToken()
         }
-      }).success(function(particpatedContest) {
+      }).success(function(participatedContest) {
         angular.copy(participatedContest, contest);
       });
     }

@@ -13,13 +13,13 @@
     </tr>
     <tr ng-repeat="matchup in contest.matchups">
       <td>
-        <input type="radio" name="matchup_{{matchup.matchupId}}" ng-model="matchup.selectedTeam" ng-value="matchup.homeTeam">
+        <input type="radio" name="matchup{{matchup.matchupId}}" ng-model="matchup.selectedTeam" ng-value="matchup.homeTeam">
         <img ng-src="{{matchup.homeLogo}}">
         <br>
         {{matchup.homeTeam}}
       </td>
       <td>
-        <input type="radio" name="matchup_{{matchup.matchupId}}" ng-model="matchup.selectedTeam" ng-value="matchup.awayTeam">
+        <input type="radio" name="matchup{{matchup.matchupId}}" ng-model="matchup.selectedTeam" ng-value="matchup.awayTeam">
         <img ng-src="{{matchup.awayLogo}}">
         <br>
         {{matchup.awayTeam}}</td>
@@ -27,6 +27,6 @@
         <td>{{matchup.winningTeam}}</td>
     </tr>
   </table>
-  <button type="submit" value="submit picks" class="btn btn-success">Submit Picks</button>
+  <button type="submit" value="submit picks" ng-click="incrementParticipants(contest)" ng-disabled= "buttonDisabled" class="btn btn-success">Submit Picks</button>
 </form>
 {{selectedTeams}}

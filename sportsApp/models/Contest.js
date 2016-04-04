@@ -14,8 +14,7 @@ var ContestSchema = new mongoose.Schema(
       matchupWinner: String
     }],
     participants: {
-      type: Number,
-      default: 0
+      type: Number
     },
     usersWhoJoined: [{
       type: mongoose.Schema.Types.ObjectId,

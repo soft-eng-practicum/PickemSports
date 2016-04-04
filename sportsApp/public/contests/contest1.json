@@ -47,5 +47,7 @@
       "selectedTeam": "",
       "matchupWinner": ""
     }
-  ]
+  ],
+  "participants": 0,
+  "usersWhoJoined": []
 }

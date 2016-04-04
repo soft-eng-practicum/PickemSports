@@ -26,10 +26,17 @@
   }
 ]);
 
-app.controller("ContestController", ["$scope","contest", "authService", function($scope, contest, authService) {
+app.controller("ContestController", ["$scope","contest", "authService", "contestService", function($scope, contest, authService, contestService) {
   $scope.isLoggedIn = authService.isLoggedIn;
   $scope.contest = contest;
   $scope.selectedTeams = [];
+
+  function submitPicks() {
+    $scope.buttonDisabled = true;
+    angular.forEach($scope.contest.matchups, function(matchup) {
+      $scope.selectedTeams.push(matchup.selectedTeam);
+    });
+  }
 
   function incrementParticipants(contest) {
     contestService.participate(contest);
@@ -41,12 +48,6 @@ app.controller("ContestController", ["$scope","contest", "authService", function
 
   function getUsersWhoJoined(contest) {
     return contest.usersWhoJoined;
-  }
-
-  function submitPicks() {
-    angular.forEach($scope.contest.matchups, function(matchup) {
-      $scope.selectedTeams.push(matchup.selectedTeam);
-    });
   }
 
   $scope.incrementParticipants = incrementParticipants;
