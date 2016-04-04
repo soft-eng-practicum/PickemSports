@@ -24,6 +24,7 @@ var contestRoutes = require("./routes/contests");
 
 var app = express();
 
+
 mongoose.connect("mongodb://localhost/sportsapp");
 
 // view engine setup
