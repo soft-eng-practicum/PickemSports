@@ -11,6 +11,7 @@
     secret: "SECRET",
     userProperty: "payload"
   });
+  var db = mongoose.connection;
 
   router.route("/contests")
     .get(function(req, res, next) {

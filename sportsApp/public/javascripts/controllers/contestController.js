@@ -39,7 +39,7 @@ app.controller("ContestController", ["$scope","contest", "authService", "contest
   }
 
   function incrementParticipants(contest) {
-    contestService.participate(contest);
+    contestService.participate(contest.id);
   }
 
   function isParticipatedByCurrentUser(contest) {
