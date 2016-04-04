@@ -12,19 +12,6 @@
     userProperty: "payload"
   });
 
-  router.param("contest", function(req, res, next, id) {
-    var query = Contest.findById(id);
-    query.exec(function(err, contest) {
-      if(err) {
-        return next(err);
-      }
-      if(!contest) {
-        return next(new Error("cant find the contest"));
-      }
-      req.contest = contest;
-      return next();
-    });
-  });
   router.route("/contests")
     .get(function(req, res, next) {
       Contest.find(function(err, contests) {
@@ -35,7 +22,7 @@
       });
     });
 
-  router.route("/contests/:contest")
+  router.route("/contests/:id")
     .get(function(req, res, next) {
       Contest.findOne({id: req.params.id}, function(err, contest) {
         if(err) {
@@ -45,7 +32,7 @@
     });
   });
 
-  router.route("/contests/:contest/participate")
+  router.route("/contests/:id/participate")
     .put(auth, function(req, res, next) {
       req.contest.participate(req.payload, function(err, contest) {
         if(err) {
