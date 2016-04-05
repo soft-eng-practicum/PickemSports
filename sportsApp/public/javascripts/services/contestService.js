@@ -23,7 +23,7 @@
     }
 
     function participate(contest) {
-      return $http.put("/contests/" + contest.id + "/participate", null, {
+      return $http.put("/contests/" + contest._id + "/participate", null, {
         headers: {
           Authorization: "Bearer " + authService.getToken()
         }

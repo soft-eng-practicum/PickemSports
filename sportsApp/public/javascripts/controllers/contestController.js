@@ -6,7 +6,7 @@
   app.config(["$stateProvider", function($stateProvider) {
     $stateProvider.state("contest", {
       parent: "root",
-      url: "/contests/:id",
+      url: "/contests/{id}",
       views: {
         "container@": {
           templateUrl: "partials/contests",
@@ -39,20 +39,15 @@ app.controller("ContestController", ["$scope","contest", "authService", "contest
   }
 
   function incrementParticipants(contest) {
-    contestService.participate(contest.id);
+    contestService.participate(contest);
   }
 
   function isParticipatedByCurrentUser(contest) {
     return contest.usersWhoJoined.indexOf(authService.currentUserId()) != -1;
   }
 
-  function getUsersWhoJoined(contest) {
-    return contest.usersWhoJoined;
-  }
-
   $scope.incrementParticipants = incrementParticipants;
   $scope.isParticipatedByCurrentUser = isParticipatedByCurrentUser;
-  $scope.getUsersWhoJoined = getUsersWhoJoined;
   $scope.submitPicks = submitPicks;
 }]);
 })();
