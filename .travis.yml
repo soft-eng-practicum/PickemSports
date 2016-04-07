@@ -3,5 +3,8 @@ node_js:
   - "5.8.0"
 services:
   - mongodb
+before_script:
+  - npm install karma --save-dev
+  - npm install karma-jasmine karma-chrome-launcher --save-dev
 before_install:
   - cd sportsApp
