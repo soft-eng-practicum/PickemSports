@@ -27,6 +27,6 @@
         <td>{{matchup.winningTeam}}</td>
     </tr>
   </table>
-  <button type="submit" value="submit picks" ng-click="incrementParticipants(contest)" ng-disabled= "buttonDisabled" class="btn btn-success">Submit Picks</button>
+  <button type="submit" value="submit picks" ng-show="!hasMadePicks" ng-click="incrementParticipants(contest)" ng-disabled= "buttonDisabled" class="btn btn-success">Submit Picks</button>
 </form>
-{{selectedTeams}}
+{{currentUser.selectedTeams}}

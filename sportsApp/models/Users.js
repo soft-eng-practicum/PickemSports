@@ -11,11 +11,11 @@ var UserSchema = new mongoose.Schema( {
     hash: String,
     salt: String,
     points: Number,
-    particpateContests: [{
+    participateContests: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: "Contest"
     }],
-    selectedTeam: [{
+    selectedTeams: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: "Contest"
     }]

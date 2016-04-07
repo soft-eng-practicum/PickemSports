@@ -33,6 +33,7 @@ app.controller("ContestController", ["$scope","contest", "authService", "contest
 
   function submitPicks() {
     $scope.buttonDisabled = true;
+    $scope.hasMadePicks = true;
     angular.forEach($scope.contest.matchups, function(matchup) {
       $scope.selectedTeams.push(matchup.selectedTeam);
     });
@@ -46,8 +47,27 @@ app.controller("ContestController", ["$scope","contest", "authService", "contest
     return contest.usersWhoJoined.indexOf(authService.currentUserId()) != -1;
   }
 
+  function checkPicks(contest) {
+    angular.forEach($scope.currentUser.selectedTeams, function(matchup) {
+      if($scope.currentUser.selectedTeam === matchup.winningTeam) {
+        $scope.currrentUser.points ++;
+      }
+    });
+  }
+
+  function showPicksToEnter() {
+    $scope.hasMadePicks = false;
+  }
+
+  function hidePicksToEnter() {
+    $scope.hasMadePicks = true;
+  }
+
   $scope.incrementParticipants = incrementParticipants;
   $scope.isParticipatedByCurrentUser = isParticipatedByCurrentUser;
   $scope.submitPicks = submitPicks;
+  $scope.checkPicks = checkPicks;
+  $scope.showPicksToEnter = showPicksToEnter;
+  $scope.hidePicksToEnter = hidePicksToEnter;
 }]);
 })();
