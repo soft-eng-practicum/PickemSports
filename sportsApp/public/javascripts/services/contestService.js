@@ -22,13 +22,21 @@
         });
     }
 
-    function participate(contest) {
-      return $http.put("/contests/" + contest._id + "/participate", null, {
+    function participate(id) {
+      return $http.put("/contests/" + id + "/participate", null, {
         headers: {
           Authorization: "Bearer " + authService.getToken()
         }
       }).success(function(participatedContest) {
         angular.copy(participatedContest, contest);
+      });
+    }
+
+    function create(id, pick) {
+      return $http.put("/contests/" + id + "/picks", pick, {
+        headers: {
+          Authorization: "Bearer " + authService.getToken()
+        }
       });
     }
 

@@ -14,26 +14,25 @@
   });
 
   router.route('/contests/:contest/picks')
-    .get(auth, function(req, res, next) {
-      .post(auth, function(req, res, next) {
-        var pick = new pick(req.body);
-        pick.contest = req.contest;
+    .post(auth, function(req, res, next) {
+      var pick = new pick(req.body);
+      pick.contest = req.contest;
 
-        // req.contest.picks.push(pick);
-        pick.save(function(err, pick) {
-          if(err) {
-            return next(err);
-          }
+      // req.contest.picks.push(pick);
+      pick.save(function(err, pick) {
+        if(err) {
+          return next(err);
+        }
 
-          Pick.populate(pick, {
-            path: "user",
-            select: "username"
-          }).then(function(pick) {
-            res.json(pick);
-          });
+        Pick.populate(pick, {
+          path: "user",
+          select: "username"
+        }).then(function(pick) {
+          res.json(pick);
         });
       });
     });
+  });
 
   module.exports = router;
 })();

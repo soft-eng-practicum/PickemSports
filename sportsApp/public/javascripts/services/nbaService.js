@@ -1,12 +1,10 @@
-(function()
-{
+(function() {
   "use strict";
 
   var app = angular.module("sportsApp.services.nba", []);
 
   app.factory("nbateams",
-    function()
-    {
+    function() {
       return [
         {logo: "stylesheets/nbalogos/atl-hawks.png", abbr: "ATL", team: "Atlanta", mascot: "Hawks"},
         {logo: "stylesheets/nbalogos/BOS_Celtics.png", abbr: "BOS", team: "Boston", mascot: "Celtics"},

@@ -9,6 +9,8 @@ var PickSchema = new mongoose.Schema({
     type: mongoose.Schema.Type.ObjectId,
     ref: "Contest"
   },
-  selectedTeams: String
+  selectedTeams: {
+    type: String
+  }
 });
 module.exports = mongoose.model('Pick', PickSchema);

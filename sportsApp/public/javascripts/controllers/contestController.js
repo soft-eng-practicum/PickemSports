@@ -37,6 +37,11 @@ app.controller("ContestController", ["$scope","contest", "authService", "contest
     angular.forEach($scope.contest.matchups, function(matchup) {
       $scope.selectedTeams.push(matchup.selectedTeam);
     });
+
+    contestService.create(contest._id, {
+      user: authService.currentUserId(),
+      selectedTeams: $scope.selectedTeams
+    });
   }
 
   function incrementParticipants(contest) {
