@@ -10,15 +10,7 @@ var UserSchema = new mongoose.Schema( {
     },
     hash: String,
     salt: String,
-    points: Number,
-    participateContests: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Contest"
-    }],
-    selectedTeams: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Contest"
-    }]
+    totalPoints: Number
   });
 
   UserSchema.methods.setPassword = function(password) {

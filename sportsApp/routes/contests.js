@@ -6,6 +6,7 @@
   var mongoose = require("mongoose");
   var Contest = mongoose.model("Contest");
   var User = mongoose.model("User");
+  var Pick = mongoose.model("Pick");
   var jwt = require("express-jwt");
   var auth = jwt({
     secret: "SECRET",
@@ -24,7 +25,7 @@
       }
       req.contest = contest;
       return next();
-    })
+    });
   });
 
   router.route("/contests")
@@ -61,6 +62,30 @@
         });
       });
     });
+
+  router.route("/contests/:contest/picks")
+    .post(auth, function(req, res, next) {
+      var pick = new Pick(req.selectedTeams);
+      pick.contest = req.contest;
+      pick.save(function(err, pick) {
+        if(err) {
+          return next(err);
+        }
+        req.contest.picks.push(pick);
+        req.contest.save(function(err, contest) {
+          if(err) {
+            return next(err);
+          }
+
+        Pick.populate(pick, {
+          path: "user",
+          select: "username"
+        }).then(function(pick) {
+          res.json(pick);
+        });
+      })
+    })
+  });
 
   module.exports = router;
 })();

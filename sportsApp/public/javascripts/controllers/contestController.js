@@ -19,60 +19,58 @@
           "contestService",
           function($stateParams, contestService) {
             return contestService.get($stateParams.id);
-          }
-        ]
-      }
-    });
-  }
-]);
+            }
+          ]
+        }
+      });
+    }
+  ]);
 
-app.controller("ContestController", ["$scope","contest", "authService", "contestService", function($scope, contest, authService, contestService) {
-  $scope.isLoggedIn = authService.isLoggedIn;
-  $scope.contest = contest;
-  $scope.selectedTeams = [];
+  app.controller("ContestController", ["$scope","contest", "authService", "contestService", function($scope, contest, authService, contestService) {
+    $scope.isLoggedIn = authService.isLoggedIn;
+    $scope.contest = contest;
+    $scope.selectedTeams = [];
+    $scope.pick = {};
 
-  function submitPicks() {
-    $scope.buttonDisabled = true;
-    $scope.hasMadePicks = true;
-    angular.forEach($scope.contest.matchups, function(matchup) {
-      $scope.selectedTeams.push(matchup.selectedTeam);
-    });
+    function submitPicks() {
+      $scope.buttonDisabled = true;
+      $scope.hasMadePicks = true;
+      contestService.participate(contest);
+      angular.forEach($scope.contest.matchups, function(matchup) {
+        $scope.selectedTeams.push(matchup.selectedTeam);
+      });
+      contestService.createEntry(contest._id, {
+        user: authService.currentUserId(),
+        selectedTeams: $scope.selectedTeams
+      }).success(function(pick) {
+        $scope.contest.picks.push(pick);
+      });
+    }
 
-    contestService.create(contest._id, {
-      user: authService.currentUserId(),
-      selectedTeams: $scope.selectedTeams
-    });
-  }
+    function isParticipatedByCurrentUser(contest) {
+      return contest.usersWhoJoined.indexOf(authService.currentUserId()) != -1;
+    }
 
-  function incrementParticipants(contest) {
-    contestService.participate(contest);
-  }
+    function checkPicks(contest) {
+      angular.forEach($scope.currentUser.selectedTeams, function(matchup) {
+        if($scope.currentUser.selectedTeam === matchup.winningTeam) {
+          $scope.currrentUser.points ++;
+        }
+      });
+    }
 
-  function isParticipatedByCurrentUser(contest) {
-    return contest.usersWhoJoined.indexOf(authService.currentUserId()) != -1;
-  }
+    function showPicksToEnter() {
+      $scope.hasMadePicks = false;
+    }
 
-  function checkPicks(contest) {
-    angular.forEach($scope.currentUser.selectedTeams, function(matchup) {
-      if($scope.currentUser.selectedTeam === matchup.winningTeam) {
-        $scope.currrentUser.points ++;
-      }
-    });
-  }
+    function hidePicksToEnter() {
+      $scope.hasMadePicks = true;
+    }
 
-  function showPicksToEnter() {
-    $scope.hasMadePicks = false;
-  }
-
-  function hidePicksToEnter() {
-    $scope.hasMadePicks = true;
-  }
-
-  $scope.incrementParticipants = incrementParticipants;
-  $scope.isParticipatedByCurrentUser = isParticipatedByCurrentUser;
-  $scope.submitPicks = submitPicks;
-  $scope.checkPicks = checkPicks;
-  $scope.showPicksToEnter = showPicksToEnter;
-  $scope.hidePicksToEnter = hidePicksToEnter;
-}]);
+    $scope.isParticipatedByCurrentUser = isParticipatedByCurrentUser;
+    $scope.submitPicks = submitPicks;
+    $scope.checkPicks = checkPicks;
+    $scope.showPicksToEnter = showPicksToEnter;
+    $scope.hidePicksToEnter = hidePicksToEnter;
+  }]);
 })();

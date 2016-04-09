@@ -19,6 +19,10 @@ var ContestSchema = new mongoose.Schema(
     usersWhoJoined: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: "User"
+    }],
+    picks: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Pick"
     }]
   });
 

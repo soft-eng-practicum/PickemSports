@@ -8,32 +8,32 @@
   var passport = require("passport");
 
   router.route("/register")
-    .post(function(request, response, next) {
-      if(!request.body.username || !request.body.password) {
-        return response.status(400).json({
+    .post(function(req, res, next) {
+      if(!req.body.username || !req.body.password) {
+        return res.status(400).json({
             message: "Please fill out all fields."
           });
       }
 
       var user = new User();
 
-      user.username = request.body.username;
-      user.setPassword(request.body.password);
+      user.username = req.body.username;
+      user.setPassword(req.body.password);
 
       user.save(function(err) {
         if(err) {
           return next(err);
         }
-        return response.json({
+        return res.json({
             token: user.generateJWT()
           });
       })
     });
 
     router.route("/login")
-      .post(function(request, response, next) {
-        if(!request.body.username || !request.body.password) {
-          return response.status(400).json({
+      .post(function(req, res, next) {
+        if(!req.body.username || !req.body.password) {
+          return res.status(400).json({
               message: "Please fill out all fields."
             });
         }
@@ -43,14 +43,14 @@
             return next(err);
           }
           if(user) {
-            return response.json({
+            return res.json({
                 token: user.generateJWT()
               });
           }
           else {
-            return response.status(401).json(info);
+            return res.status(401).json(info);
           }
-        })(request, response, next);
+        })(req, res, next);
       });
 
       module.exports = router;

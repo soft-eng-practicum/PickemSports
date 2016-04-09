@@ -1,16 +1,14 @@
 var mongoose = require("mongoose");
 
 var PickSchema = new mongoose.Schema({
-  user: {
-    type: mongoose.Schema.Type.ObjectId,
-    ref: "User"
-  },
   contest: {
-    type: mongoose.Schema.Type.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Contest"
   },
-  selectedTeams: {
-    type: String
+  selectedTeams: [String],
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
   }
 });
 module.exports = mongoose.model('Pick', PickSchema);

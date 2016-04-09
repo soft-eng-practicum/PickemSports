@@ -22,8 +22,8 @@
         });
     }
 
-    function participate(id) {
-      return $http.put("/contests/" + id + "/participate", null, {
+    function participate(contest) {
+      return $http.put("/contests/" + contest._id + "/participate", null, {
         headers: {
           Authorization: "Bearer " + authService.getToken()
         }
@@ -32,11 +32,11 @@
       });
     }
 
-    function create(id, pick) {
-      return $http.put("/contests/" + id + "/picks", pick, {
+    function createEntry(id, pick) {
+      return $http.post("/contests/" + id + "/picks", pick, {
         headers: {
           Authorization: "Bearer " + authService.getToken()
-        }
+          }
       });
     }
 
@@ -44,6 +44,7 @@
     o.getAll = getAll;
     o.get = get;
     o.participate = participate;
+    o.createEntry = createEntry;
 
     return o;
   }]);
