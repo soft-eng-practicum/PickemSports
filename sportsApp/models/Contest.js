@@ -32,13 +32,16 @@ ContestSchema.methods.participate = function(user, callback) {
     this.participants++;
 
     this.save(callback);
-  } else {
-    this.usersWhoJoined.splice(this.usersWhoJoined.indexOf(user._id), 1);
-    this.participants--;
-
-    this.save(callback);
   }
 }
+
+  ContestSchema.methods.points = function(user, callback) {
+    if (this.usersWhoJoined.indexOf(user._id) != -1) {
+      user._id.points++;
+
+      this.save(callback);
+    }
+  }
 
 
 mongoose.model("Contest", ContestSchema);

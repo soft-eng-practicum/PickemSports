@@ -1,8 +1,10 @@
 <div class="page-header">
 </div>
 
-{{contest.participants}}
-{{contest.usersWhoJoined}}
+<h2>Users in Contest:</h2>
+<ul ng-repeat="user in contest.usersWhoJoined">
+  <li><h4>{{user.username}}</h4></li>
+</ul>
 <form name="contestForm" ng-submit="submitPicks()">
   <table id="nbateams">
     <tr>
@@ -13,20 +15,38 @@
     </tr>
     <tr ng-repeat="matchup in contest.matchups">
       <td>
-        <input type="radio" name="matchup{{matchup.matchupId}}" ng-model="matchup.selectedTeam" ng-value="matchup.homeTeam">
+        <input type="radio" name="matchup{{matchup.matchupId}}" ng-model="matchup.selectedTeam" ng-value="matchup.homeTeam" ng-disabled="madePicks" required>
         <img ng-src="{{matchup.homeLogo}}">
         <br>
         {{matchup.homeTeam}}
       </td>
       <td>
-        <input type="radio" name="matchup{{matchup.matchupId}}" ng-model="matchup.selectedTeam" ng-value="matchup.awayTeam">
+        <input type="radio" name="matchup{{matchup.matchupId}}" ng-model="matchup.selectedTeam" ng-value="matchup.awayTeam" ng-disabled="madePicks" required>
         <img ng-src="{{matchup.awayLogo}}">
         <br>
-        {{matchup.awayTeam}}</td>
+        {{matchup.awayTeam}}
+      </td>
         <td>{{matchup.selectedTeam}}</td>
         <td>{{matchup.winningTeam}}</td>
     </tr>
   </table>
   <button type="submit" ng-show="!hasMadePicks" ng-disabled= "buttonDisabled" class="btn btn-success">Submit Picks</button>
 </form>
-{{selectedTeams}}
+
+<div class="container">
+  <h2 align="center">User Picks</h2>
+  <table id="nbateams">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Picks (will show after contest begins)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="pick in contest.picks">
+        <td>{{pick.user.username}}</td>
+        <td>{{pick.selectedTeams}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

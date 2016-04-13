@@ -10,11 +10,7 @@ var UserSchema = new mongoose.Schema( {
     },
     hash: String,
     salt: String,
-    totalPoints: Number,
-    picks: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Pick"
-    }]
+    points: Number
   });
 
   UserSchema.methods.setPassword = function(password) {

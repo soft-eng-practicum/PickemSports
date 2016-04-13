@@ -40,6 +40,16 @@
       });
     }
 
+    function incrementUserPoints(id) {
+      return $http.put("/contests/" + id + "/points", null, {
+        headers: {
+          Authorization: "Bearer " + authService.getToken()
+        }
+      }).success(function(updatedLeaderboard) {
+        angular.copy(updatedLeaderboard, contest);
+      });
+    }
+
 
     o.getAll = getAll;
     o.get = get;

@@ -43,8 +43,17 @@
       Contest.populate(req.contest, {
         path: "usersWhoJoined",
         select: "username"
+      })
+      Contest.populate(req.contest, {
+        path: "picks",
       }).then(function(contest) {
-        res.json(contest);
+        Pick.populate(req.contest.picks, {
+          path: "user",
+          select: "username"
+        }).then(function(picks) {
+          res.json(contest);
+          res.json(picks);
+        });
       });
   });
 
@@ -85,7 +94,23 @@
           });
         })
       })
-  });
+    });
+
+    router.route("/contests/:contest/points")
+      .put(auth, function(req, res, next) {
+        req.contest.points(req.payload, function(err, contest) {
+          if(err) {
+            return next(err);
+          }
+
+          Contest.populate(contest, {
+            path: "usersWhoJoined",
+            select: "username points"
+          }).then(function(contest) {
+            res.json(contest);
+          });
+        });
+      });
 
   module.exports = router;
 })();

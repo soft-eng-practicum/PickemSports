@@ -31,10 +31,18 @@
     $scope.contest = contest;
     $scope.selectedTeams = [];
 
+      angular.forEach($scope.contest.usersWhoJoined, function(user) {
+        console.log(angular.equals(user._id, authService.currentUserId()));
+        if(angular.equals(user._id, authService.currentUserId()) == true) {
+          $scope.madePicks = true;
+        } else {
+          $scope.madePicks = false;
+        }
+      });
+
     function submitPicks() {
+      console.log($scope.user);
       $scope.buttonDisabled = true;
-      $scope.hasMadePicks = true;
-      contestService.participate(contest);
       angular.forEach($scope.contest.matchups, function(matchup) {
         $scope.selectedTeams.push(matchup.selectedTeam);
       });
@@ -44,33 +52,21 @@
         selectedTeams: $scope.selectedTeams
       }).success(function(pick) {
         $scope.contest.picks.push(pick);
+        contestService.participate(contest);
       });
     }
 
-    function isParticipatedByCurrentUser(contest) {
-      return contest.usersWhoJoined.indexOf(authService.currentUserId()) != -1;
-    }
-
-    function checkPicks(contest) {
-      angular.forEach($scope.currentUser.selectedTeams, function(matchup) {
-        if($scope.currentUser.selectedTeam === matchup.winningTeam) {
-          $scope.currrentUser.points ++;
-        }
+    function checkPicks(pick) {
+      angular.forEach($scope.contest.matchups, function(matchup) {
+        angular.forEach(pick.selectedTeams, function(selectedTeam) {
+          if(angular.equals(matchup.winningTeam, pick.selectedTeam) === true) {
+            contestService.incrementUserPoints(contest._id);
+          }
+        });
       });
     }
 
-    function showPicksToEnter() {
-      $scope.hasMadePicks = false;
-    }
-
-    function hidePicksToEnter() {
-      $scope.hasMadePicks = true;
-    }
-
-    $scope.isParticipatedByCurrentUser = isParticipatedByCurrentUser;
     $scope.submitPicks = submitPicks;
     $scope.checkPicks = checkPicks;
-    $scope.showPicksToEnter = showPicksToEnter;
-    $scope.hidePicksToEnter = hidePicksToEnter;
-  }]);
+}]);
 })();
