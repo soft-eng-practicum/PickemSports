@@ -65,8 +65,8 @@
 
   router.route("/contests/:contest/picks")
     .post(auth, function(req, res, next) {
-      var pick = new Pick(req.selectedTeams);
-      pick.contest = req.contest;
+      var pick = new Pick(req.body);
+
       pick.save(function(err, pick) {
         if(err) {
           return next(err);
@@ -77,14 +77,14 @@
             return next(err);
           }
 
-        Pick.populate(pick, {
-          path: "user",
-          select: "username"
-        }).then(function(pick) {
-          res.json(pick);
-        });
+          Pick.populate(pick, {
+            path: "user",
+            select: "username"
+          }).then(function(pick) {
+            res.json(pick);
+          });
+        })
       })
-    })
   });
 
   module.exports = router;

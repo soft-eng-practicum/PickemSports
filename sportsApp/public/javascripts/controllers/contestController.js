@@ -30,7 +30,6 @@
     $scope.isLoggedIn = authService.isLoggedIn;
     $scope.contest = contest;
     $scope.selectedTeams = [];
-    $scope.pick = {};
 
     function submitPicks() {
       $scope.buttonDisabled = true;
@@ -40,6 +39,7 @@
         $scope.selectedTeams.push(matchup.selectedTeam);
       });
       contestService.createEntry(contest._id, {
+        contest: $scope.contest,
         user: authService.currentUserId(),
         selectedTeams: $scope.selectedTeams
       }).success(function(pick) {
