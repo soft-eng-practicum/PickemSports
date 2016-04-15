@@ -7,7 +7,7 @@
       "homeTeam": "Cleveland",
       "homeLogo": "stylesheets/mlblogos/Cleveland Indians.jpg",
       "awayTeam": "Seattle",
-      "awayLogo": "stylesheets/mlblogos/SEA.jpe",
+      "awayLogo": "stylesheets/mlblogos/Seattle Mariners.jpg",
       "selectedTeam": "",
       "matchupWinner": ""
     },
@@ -51,8 +51,8 @@
       "matchupId": 6,
       "homeTeam": "Chicago White Sox",
       "homeLogo": "stylesheets/mlblogos/CWS.jpg",
-      "awayTeam": "Los Angeles Angles",
-      "awayLogo": "stylesheets/mlblogos/Los Angeles Angles.jpg",
+      "awayTeam": "Los Angeles Angels",
+      "awayLogo": "stylesheets/mlblogos/Los Angeles Angels.jpg",
       "selectedTeam": "",
       "matchupWinner": ""
     }

@@ -26,26 +26,30 @@
     }
   ]);
 
-  app.controller("ContestController", ["$scope","contest", "authService", "contestService", function($scope, contest, authService, contestService) {
+  app.controller("ContestController", ["$scope","contest", "authService", "contestService", "moment", function($scope, contest, authService, contestService, moment) {
     $scope.isLoggedIn = authService.isLoggedIn;
     $scope.contest = contest;
     $scope.selectedTeams = [];
 
+    // Check to see if the user has made picks
     angular.forEach($scope.contest.usersWhoJoined, function(user) {
       console.log(angular.equals(user._id, authService.currentUserId()));
       if(angular.equals(user._id, authService.currentUserId()) == true) {
         $scope.madePicks = true;
+        $scope.buttonDisabled = true;
       } else {
         $scope.madePicks = false;
       }
     });
 
-
+    // Check to see if the contest had already started
     var currentTime = moment();
-    var startTime = moment.unix($scope.contest.start.unix);
-
+    console.log(currentTime);
+    var startTime = moment($scope.contest.start);
+    console.log(startTime);
     if(currentTime.isAfter(startTime)) {
       console.log("Contest has already begun");
+      $scope.madePicks = true;
       $scope.buttonDisabled = true;
     };
 

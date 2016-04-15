@@ -10,16 +10,13 @@
     			<th>Contest ID</</th>
     			<th>League(s) Included</th>
     			<th>Number of Participants</th>
-    			<th>Users in Contest</th>
+          <th>Start Date</th>
     		</tr>
         <tr ng-repeat="contest in contests">
         <td>{{contest.id}}</td>
         <td>{{contest.tags}}</td>
         <td>{{contest.participants}}</td>
-        <td>
-          <span ng-repeat="user in contest.usersWhoJoined">
-            {{user.username}}
-        </td>
+        <td>{{contest.start | date:"MM/dd/yyyy' at 'h:mma"}}</td>
         <td><button class="btn btn-primary" ui-sref="contest({id: contest._id})">View</td>
     </table>
 </div>

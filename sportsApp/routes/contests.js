@@ -34,7 +34,12 @@
         if(err) {
           return next(err);
         }
-        res.json(contests);
+        Contest.populate(contests, {
+          path: "usersWhoJoined",
+          select: "username"
+        }).then(function(contests) {
+          res.json(contests);
+        });
       });
     });
 
