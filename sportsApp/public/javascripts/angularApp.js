@@ -1,5 +1,4 @@
-(function()
-{
+(function() {
 	"use strict";
 
 	var app = angular.module("sportsApp", [
@@ -14,6 +13,7 @@
 		"sportsApp.controllers.list",
 		"sportsApp.services.auth",
 		"sportsApp.services.nba",
+		"sportsApp.services.mlb",
 		"sportsApp.services.contest",
 		"ui.router",
 		"angularMoment"
@@ -22,15 +22,11 @@
 	app.config([
 		"$stateProvider",
 		"$urlRouterProvider",
-		function($stateProvider, $urlRouterProvider)
-		{
-			$stateProvider.state("root",
-			{
+		function($stateProvider, $urlRouterProvider) {
+			$stateProvider.state("root", {
 				abstract: true,
-				views:
-				{
-					"header":
-					{
+				views: {
+					"header": {
 						templateUrl: "partials/header",
 						controller: "NavController"
 					}

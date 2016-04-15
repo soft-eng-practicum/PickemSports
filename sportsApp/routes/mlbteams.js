@@ -4,12 +4,12 @@
   var express = require("express");
   var router = express.Router();
   var mongoose = require("mongoose");
-  var Nbateam = mongoose.model("Nbateam");
+  var Mlbteam = mongoose.model("Mlbteam");
 
   router.get('/', function(req, res, next) {
-    Nbateam.find(function(err, nbateams) {
+    Mlbteam.find(function(err, mlbteams) {
       if(err) return next(err);
-      res.json(nbateams);
+      res.json(mlbteams);
     });
   });
 

@@ -8,6 +8,7 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 require("./models/Users");
 require("./models/Nbateam");
+require("./models/Mlbteam");
 require("./models/Contest");
 require("./models/Pick");
 
@@ -20,6 +21,7 @@ var partialsRoutes = require("./routes/partials");
 var authRoutes = require("./routes/auth");
 var usersRoutes = require("./routes/users");
 var nbaTeamsRoutes = require("./routes/nbateams");
+var mlbTeamsRoutes = require("./routes/mlbteams");
 var contestRoutes = require("./routes/contests");
 
 var app = express();
@@ -46,6 +48,7 @@ app.use("/", partialsRoutes);
 app.use("/", authRoutes);
 app.use("/", usersRoutes);
 app.use("/", nbaTeamsRoutes);
+app.use("/", mlbTeamsRoutes);
 app.use("/", contestRoutes);
 
 // catch 404 and forward to error handler

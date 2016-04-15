@@ -31,14 +31,23 @@
     $scope.contest = contest;
     $scope.selectedTeams = [];
 
-      angular.forEach($scope.contest.usersWhoJoined, function(user) {
-        console.log(angular.equals(user._id, authService.currentUserId()));
-        if(angular.equals(user._id, authService.currentUserId()) == true) {
-          $scope.madePicks = true;
-        } else {
-          $scope.madePicks = false;
-        }
-      });
+    angular.forEach($scope.contest.usersWhoJoined, function(user) {
+      console.log(angular.equals(user._id, authService.currentUserId()));
+      if(angular.equals(user._id, authService.currentUserId()) == true) {
+        $scope.madePicks = true;
+      } else {
+        $scope.madePicks = false;
+      }
+    });
+
+
+    var currentTime = moment();
+    var startTime = moment.unix($scope.contest.start.unix);
+
+    if(currentTime.isAfter(startTime)) {
+      console.log("Contest has already begun");
+      $scope.buttonDisabled = true;
+    };
 
     function submitPicks() {
       console.log($scope.user);
