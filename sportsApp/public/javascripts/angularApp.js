@@ -14,6 +14,7 @@
 		"sportsApp.services.auth",
 		"sportsApp.services.nba",
 		"sportsApp.services.mlb",
+		"sportsApp.services.nhl",
 		"sportsApp.services.contest",
 		"ui.router",
 		"angularMoment"

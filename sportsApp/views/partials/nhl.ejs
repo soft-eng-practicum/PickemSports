@@ -2,3 +2,18 @@
   <br>
   <h1>NHL Team List</h1>
 </div>
+
+<table id="nbateams">
+    <tr>
+      <th>Logo</th>
+      <th>Abbreviation</th>
+      <th>Team</th>
+      <th>Mascot</th>
+    </tr>
+    <tr ng-repeat="nhlteam in nhlteams">
+      <td><img ng-src="{{nhlteam.logo}}"></td>
+      <td>{{ nhlteam.abbr }}</td>
+      <td>{{ nhlteam.team }}</td>
+      <td>{{ nhlteam.mascot }}</td>
+    </tr>
+  </table>

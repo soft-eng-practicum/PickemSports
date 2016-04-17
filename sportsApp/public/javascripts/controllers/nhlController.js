@@ -10,10 +10,14 @@
       views: {
         "container@": {
           templateUrl: "partials/nhl",
+          controller: "NhlController"
         }
       }
     });
   }]);
+  app.controller("NhlController", ["$scope", "nhlteams", function($scope, nhlteams) {
+    $scope.nhlteams = nhlteams;
 
+  }]);
 
 })();
