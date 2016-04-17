@@ -1085,30 +1085,41 @@ h1 {
 h3 {
   text-align: center
 }
-.zui-table {
-    border: solid 1px #DDEEEE;
-    border-collapse: collapse;
-    border-spacing: 0;
-    font: normal 13px Arial, sans-serif;
+
+.rowA {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    box-orient: horizontal;
+    flex-direction: row;
+
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    box-pack: center;
+    justify-content: center;
+
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    align-items: center;
+
 }
-.zui-table thead th {
-    background-color: #DDEFEF;
-    border: solid 1px #DDEEEE;
-    color: #336B6B;
+
+.cell {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+
     padding: 10px;
-    text-align: left;
-    text-shadow: 1px 1px 1px #fff;
+    margin: 10px;
+
+    border: 1px solid #eee;
 }
-.zui-table tbody td {
-    border: solid 1px #DDEEEE;
-    color: #333;
-    padding: 10px;
-    text-shadow: 1px 1px 1px #fff;
-}
-.zui-table-highlight tbody tr:hover {
-    background-color: #CCE7E7;
-}
-.zui-table-horizontal tbody td {
-    border-left: none;
-    border-right: none;
-}
+img {max-width:100%;}
