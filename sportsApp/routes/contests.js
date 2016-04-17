@@ -84,10 +84,15 @@
           return next(err);
         }
         Contest.populate(contest, {
-          path: "usersWhoJoined",
-          select: "username"
+          path: "picks",
         }).then(function(contest) {
-          res.json(contest);
+          Pick.populate(req.contest.picks, {
+            path: "user",
+            select: "username"
+          }).then(function(picks) {
+            res.json(contest);
+            res.json(picks);
+          });
         });
       });
     });
