@@ -10,7 +10,7 @@ var UserSchema = new mongoose.Schema( {
     },
     hash: String,
     salt: String,
-    points: Number
+    totalPoints: Number
   });
 
   UserSchema.methods.setPassword = function(password) {

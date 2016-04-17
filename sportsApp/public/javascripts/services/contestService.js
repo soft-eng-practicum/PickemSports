@@ -40,13 +40,13 @@
       });
     }
 
-    function incrementUserPoints(id) {
-      return $http.put("/contests/" + id + "/points", null, {
+    function incrementPoints(contest, pick) {
+      return $http.put("/contests/" + contest._id + "/picks/" + pick._id + "/contestPoints", null, {
         headers: {
           Authorization: "Bearer " + authService.getToken()
         }
-      }).success(function(updatedLeaderboard) {
-        angular.copy(updatedLeaderboard, contest);
+      }).success(function(updatedPick) {
+        angular.copy(updatedPick, pick);
       });
     }
 
@@ -55,6 +55,7 @@
     o.get = get;
     o.participate = participate;
     o.createEntry = createEntry;
+    o.incrementPoints = incrementPoints;
 
     return o;
   }]);

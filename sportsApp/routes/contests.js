@@ -28,6 +28,21 @@
     });
   });
 
+  router.param("pick", function(req, res, next, id) {
+    var query = Pick.findById(id);
+
+    query.exec(function(err, pick) {
+      if(err) {
+        return next(err);
+      }
+      if(!pick) {
+        return next(new Error("cannot find that pick"));
+      }
+      req.pick = pick;
+      return next();
+    });
+  });
+
   router.route("/contests")
     .get(function(req, res, next) {
       Contest.find(function(err, contests) {
@@ -80,6 +95,7 @@
   router.route("/contests/:contest/picks")
     .post(auth, function(req, res, next) {
       var pick = new Pick(req.body);
+      pick.contestPoints = 0;
 
       pick.save(function(err, pick) {
         if(err) {
@@ -101,18 +117,17 @@
       })
     });
 
-    router.route("/contests/:contest/points")
+    router.route("/contests/:contest/picks/:pick/contestPoints")
       .put(auth, function(req, res, next) {
-        req.contest.points(req.payload, function(err, contest) {
+        req.pick.incrementPoints(req.payload, function(err, pick) {
           if(err) {
             return next(err);
           }
-
-          Contest.populate(contest, {
-            path: "usersWhoJoined",
-            select: "username points"
-          }).then(function(contest) {
-            res.json(contest);
+          Pick.populate(pick, {
+            path: "user",
+            select: "username"
+          }).then(function(pick) {
+            res.json(pick);
           });
         });
       });

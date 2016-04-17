@@ -30,6 +30,7 @@
     $scope.isLoggedIn = authService.isLoggedIn;
     $scope.contest = contest;
     $scope.selectedTeams = [];
+    $scope.makeAvailable = false;
 
     // Check to see if the user has made picks
     angular.forEach($scope.contest.usersWhoJoined, function(user) {
@@ -53,8 +54,28 @@
       $scope.buttonDisabled = true;
     };
 
+    function checkPicks() {
+      var endTime = moment("2016-04-16T12:10:00+00:00");
+      var checkCount = 0;
+      if(currentTime.isAfter(endTime) && checkCount == 0) {
+        checkCount++;
+        $scope.makeAvailable = true;
+        console.log("Contest has ended, calculating results");
+        angular.forEach($scope.contest.picks, function(pick) {
+          angular.forEach(pick.selectedTeams, function(selectedTeam) {
+            angular.forEach($scope.contest.matchups, function(matchup) {
+              if(angular.equals(selectedTeam, matchup.matchupWinner) == true) {
+                console.log(contest);
+                console.log(pick);
+                contestService.incrementPoints(contest, pick);
+              }
+            });
+          });
+        });
+      };
+    }
+
     function submitPicks() {
-      console.log($scope.user);
       $scope.buttonDisabled = true;
       angular.forEach($scope.contest.matchups, function(matchup) {
         $scope.selectedTeams.push(matchup.selectedTeam);
@@ -69,17 +90,7 @@
       });
     }
 
-    function checkPicks(pick) {
-      angular.forEach($scope.contest.matchups, function(matchup) {
-        angular.forEach(pick.selectedTeams, function(selectedTeam) {
-          if(angular.equals(matchup.winningTeam, pick.selectedTeam) === true) {
-            contestService.incrementUserPoints(contest._id);
-          }
-        });
-      });
-    }
-
-    $scope.submitPicks = submitPicks;
     $scope.checkPicks = checkPicks;
+    $scope.submitPicks = submitPicks;
 }]);
 })();

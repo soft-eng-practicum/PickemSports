@@ -12,21 +12,21 @@
     });
 
   router.route("/users")
-    .get(auth, function(request, response, next) {
+    .get(auth, function(req, res, next) {
       User.find(function(err, users) {
         if(err) {
           return next(err);
         }
-        response.json(users);
+        res.json(users);
       });
     });
 
   router.route("/users/:user")
-    .get(auth, function(request, response, next) {
-      response.json(request.user);
+    .get(auth, function(req, res, next) {
+      res.json(req.user);
     });
 
-  router.param("user", function(request, response, next, id) {
+  router.param("user", function(req, res, next, id) {
     var query = User.findById(id);
     query.exec(function(err, user) {
       if(err) {
@@ -37,7 +37,7 @@
         return next(new Error("Can't find user."));
       }
 
-      request.user = user;
+      req.user = user;
       return next();
     });
   });

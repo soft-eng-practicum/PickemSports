@@ -35,13 +35,5 @@ ContestSchema.methods.participate = function(user, callback) {
   }
 }
 
-  ContestSchema.methods.points = function(user, callback) {
-    if (this.usersWhoJoined.indexOf(user._id) != -1) {
-      user._id.points++;
-
-      this.save(callback);
-    }
-  }
-
 
 mongoose.model("Contest", ContestSchema);

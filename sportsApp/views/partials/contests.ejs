@@ -33,19 +33,21 @@
   <button type="submit" ng-show="!hasMadePicks" ng-disabled= "buttonDisabled" class="btn btn-success">Submit Picks</button>
 </form>
 
-<div class="container">
-  <h2 align="center">User Picks</h2>
+<div class="container" ng-show="!makeAvailable">
+  <h2 align="center">Contest Leaderboard</h2>
   <table id="nbateams">
     <thead>
       <tr>
         <th>Username</th>
-        <th>Picks (will show after contest begins)</th>
+        <th>Picks</th>
+        <th>User Points</th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="pick in contest.picks">
         <td>{{pick.user.username}}</td>
         <td>{{pick.selectedTeams}}</td>
+        <td>{{pick.contestPoints}}</td>
       </tr>
     </tbody>
   </table>
