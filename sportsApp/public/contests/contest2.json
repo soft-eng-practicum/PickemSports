@@ -1,0 +1,73 @@
+{
+  "id": 2,
+  "tags": "MLB, NBA",
+  "matchups": [
+    {
+      "matchupId": 1,
+      "homeTeam": "Miami",
+      "homeLogo": "stylesheets/mlblogos/Florida Marlins.jpg",
+      "awayTeam": "Washington",
+      "awayLogo": "stylesheets/mlblogos/Washington Nationals.jpg",
+      "selectedTeam": "",
+      "matchupWinner": ""
+    },
+    {
+      "matchupId": 2,
+      "homeTeam": "Atlanta",
+      "homeLogo": "stylesheets/mlblogos/Atlanta Braves.jpg",
+      "awayTeam": "Los Angeles",
+      "awayLogo": "stylesheets/mlblogos/LAD.jpg",
+      "selectedTeam": "",
+      "matchupWinner": ""
+    },
+    {
+      "matchupId": 3,
+      "homeTeam": "Boston",
+      "homeLogo": "stylesheets/mlblogos/Boston Red Sox.jpg",
+      "awayTeam": "Tampa Bay",
+      "awayLogo": "stylesheets/mlblogos/Tampa Bay Rays.jpg",
+      "selectedTeam": "",
+      "matchupWinner": ""
+    },
+    {
+      "matchupId": 4,
+      "homeTeam": "Chicago",
+      "homeLogo": "stylesheets/mlblogos/CWS.jpg",
+      "awayTeam": "Los Angeles",
+      "awayLogo": "stylesheets/mlblogos/Los Angeles Angels.jpg",
+      "selectedTeam": "",
+      "matchupWinner": ""
+    },
+    {
+      "matchupId": 5,
+      "homeTeam": "Dallas",
+      "homeLogo": "stylesheets/nbalogos/Dallas-Mavericks.png",
+      "awayTeam": "Oklahoma City",
+      "awayLogo": "stylesheets/nbalogos/OKC-Thunder.png",
+      "selectedTeam": "",
+      "matchupWinner": ""
+    },
+    {
+      "matchupId": 6,
+      "homeTeam": "Houston",
+      "homeLogo": "stylesheets/nbalogos/HOU-Rock.png",
+      "awayTeam": "Golden State",
+      "awayLogo": "stylesheets/nbalogos/GSW.png",
+      "selectedTeam": "",
+      "matchupWinner": ""
+    },
+    {
+      "matchupId": 7,
+      "homeTeam": "Indiana",
+      "homeLogo": "stylesheets/nbalogos/IND-Pacers.png",
+      "awayTeam": "Toronto",
+      "awayLogo": "stylesheets/nbalogos/TOR-Raptors.png",
+      "selectedTeam": "",
+      "matchupWinner": ""
+    }
+  ],
+  "participants": 0,
+  "usersWhoJoined": [],
+  "start": "2016-04-21T12:09:00+00:00",
+  "end": "2016-04-22T2:00:00+00:00"
+}

@@ -20,5 +20,6 @@
   function($scope, authService, contestService) {
     $scope.isLoggedIn = authService.isLoggedIn;
     $scope.contests = contestService.contests;
+
   }]);
 })();

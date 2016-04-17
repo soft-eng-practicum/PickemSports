@@ -55,7 +55,7 @@
     };
 
     function checkPicks() {
-      var endTime = moment("2016-04-16T12:10:00+00:00");
+      var endTime = moment($scope.contest.end);
       var checkCount = 0;
       if(currentTime.isAfter(endTime) && checkCount == 0) {
         checkCount++;
@@ -65,8 +65,6 @@
           angular.forEach(pick.selectedTeams, function(selectedTeam) {
             angular.forEach($scope.contest.matchups, function(matchup) {
               if(angular.equals(selectedTeam, matchup.matchupWinner) == true) {
-                console.log(contest);
-                console.log(pick);
                 contestService.incrementPoints(contest, pick);
               }
             });

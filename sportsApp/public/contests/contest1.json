@@ -4,50 +4,52 @@
   "matchups": [
     {
       "matchupId": 1,
-      "homeTeam": "Portland",
-      "homeLogo": "stylesheets/nbalogos/Portland-Trail-Blazers-Logo.png",
-      "awayTeam": "Atlanta",
-      "awayLogo": "stylesheets/nbalogos/atl-hawks.png",
+      "homeTeam": "Atlanta",
+      "homeLogo": "stylesheets/nbalogos/atl-hawks.png",
+      "awayTeam": "Boston",
+      "awayLogo": "stylesheets/nbalogos/BOS_Celtics.png",
       "selectedTeam": "",
       "matchupWinner": ""
     },
     {
       "matchupId": 2,
-      "homeTeam": "Dallas",
-      "homeLogo": "stylesheets/nbalogos/Dallas-Mavericks.png",
-      "awayTeam": "Detroit",
-      "awayLogo": "stylesheets/nbalogos/DET.png",
-      "selectedTeam": "",
-      "matchupWinner": ""
-    },
-    {
-      "matchupId": 3,
-      "homeTeam": "Golden State",
-      "homeLogo": "stylesheets/nbalogos/GSW.png",
+      "homeTeam": "San Antonio",
+      "homeLogo": "stylesheets/nbalogos/spurs.png",
       "awayTeam": "Memphis",
       "awayLogo": "stylesheets/nbalogos/Memphis-Grizzlies.png",
       "selectedTeam": "",
       "matchupWinner": ""
     },
     {
+      "matchupId": 3,
+      "homeTeam": "Miami",
+      "homeLogo": "stylesheets/nbalogos/MIA-Heat.png",
+      "awayTeam": "Charlotte",
+      "awayLogo": "stylesheets/nbalogos/CHA-Horn.png",
+      "selectedTeam": "",
+      "matchupWinner": ""
+    },
+    {
       "matchupId": 4,
-      "homeTeam": "Oklahoma City",
-      "homeLogo": "stylesheets/nbalogos/OKC-Thunder.png",
-      "awayTeam": "Pheonix",
-      "awayLogo": "stylesheets/nbalogos/Pheonix-Suns.jpg",
+      "homeTeam": "Los Angeles",
+      "homeLogo": "stylesheets/nbalogos/LAC.jpg",
+      "awayTeam": "Portland",
+      "awayLogo": "stylesheets/nbalogos/Portland-Trail-Blazers-Logo.png",
       "selectedTeam": "",
       "matchupWinner": ""
     },
     {
       "matchupId": 5,
-      "homeTeam": "Utah",
-      "homeLogo": "stylesheets/nbalogos/Utah-Jazz.jpg",
-      "awayTeam": "Sacremento",
-      "awayLogo": "stylesheets/nbalogos/Sacremento-Kings.jpg",
+      "homeTeam": "Detroit",
+      "homeLogo": "stylesheets/nbalogos/DET.png",
+      "awayTeam": "Cleveland",
+      "awayLogo": "stylesheets/nbalogos/CLE-Cavs.jpg",
       "selectedTeam": "",
       "matchupWinner": ""
     }
   ],
   "participants": 0,
-  "usersWhoJoined": []
+  "usersWhoJoined": [],
+  "start": "2016-04-19T18:59:00+00:00",
+  "end": "2016-04-21T3:00:00+00:00"
 }

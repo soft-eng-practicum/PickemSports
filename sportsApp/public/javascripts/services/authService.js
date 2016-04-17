@@ -20,8 +20,7 @@
       if(token) {
         var payload = JSON.parse($window.atob(token.split(".")[1]));
         return payload.exp > Date.now() / 1000;
-      }
-      else {
+      } else {
         return false;
       }
     }
@@ -35,8 +34,7 @@
     }
 
     function currentUserId() {
-      if(auth.isLoggedIn())
-      {
+      if(auth.isLoggedIn()) {
         var token = auth.getToken();
         var payload = JSON.parse($window.atob(token.split(".")[1]));
         return payload._id;
@@ -44,15 +42,13 @@
     }
 
     function register(user) {
-      return $http.post("/register", user).success(function(data)
-      {
+      return $http.post("/register", user).success(function(data) {
         auth.saveToken(data.token);
       });
     }
 
     function logIn(user) {
-      return $http.post("/login", user).success(function(data)
-      {
+      return $http.post("/login", user).success(function(data) {
         auth.saveToken(data.token);
       });
     }
@@ -69,7 +65,6 @@
     auth.register = register;
     auth.logIn = logIn;
     auth.logOut = logOut;
-
 
     return auth;
   }]);
