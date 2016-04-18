@@ -26,6 +26,7 @@
     			<th>League(s) Included</th>
     			<th>Number of Participants</th>
           <th>Start Date</th>
+          <th> </th>
     		</tr>
         <tr ng-repeat="contest in contests">
         <td>{{contest.id}}</td>
@@ -36,5 +37,6 @@
     </table>
 </div>
 <div ng-hide="isLoggedIn()">
-  <h1>You need to login or register to particpate in contests</h1>
+  <h1>You need to <a ui-sref="login">login</a> or <a ui-sref="register">register</a> to participate in contests</h1>
+  <a ng-show="isLoggedIn()" ui-sref="contestList">
 </div>

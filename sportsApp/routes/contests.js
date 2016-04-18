@@ -112,15 +112,42 @@
             return next(err);
           }
 
-          Pick.populate(pick, {
-            path: "user",
+          Contest.populate(req.contest, {
+            path: "usersWhoJoined",
             select: "username"
-          }).then(function(pick) {
-            res.json(pick);
+          })
+          Contest.populate(req.contest, {
+            path: "picks",
+          }).then(function(contest) {
+            Pick.populate(req.contest.picks, {
+              path: "user",
+              select: "username"
+            }).then(function(picks) {
+              res.json(contest);
+              res.json(picks);
+            });
           });
         })
       })
     });
+
+    router.route("/contests/:contest/picks/:pick")
+      .delete(auth, function(req, res, next) {
+        req.contest.picks.splice(req.contest.picks.indexOf(req.pick), 1);
+        req.contest.usersWhoJoined.splice(req.contest.usersWhoJoined.indexOf(req.pick.user._id), 1);
+        req.contest.participants--;
+        req.contest.save(function(err, contest) {
+          if(err) {
+            return next(err);
+          }
+          req.pick.remove(function(err) {
+            if(err) {
+              return next(err);
+            }
+            res.send("success");
+          });
+        });
+      });
 
     router.route("/contests/:contest/picks/:pick/contestPoints")
       .put(auth, function(req, res, next) {

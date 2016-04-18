@@ -50,12 +50,21 @@
       });
     }
 
+    function deletePicks(id, pick) {
+      return $http.delete("/contests/" + id + "/picks/" + pick._id, {
+        headers: {
+          Authorization: "Bearer " + authService.getToken()
+        }
+      });
+    }
+
 
     o.getAll = getAll;
     o.get = get;
     o.participate = participate;
     o.createEntry = createEntry;
     o.incrementPoints = incrementPoints;
+    o.deletePicks = deletePicks;
 
     return o;
   }]);

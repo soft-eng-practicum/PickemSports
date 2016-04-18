@@ -1,16 +1,24 @@
 <div class="page-header">
 </div>
+<div ng-show="showDeletePicks" class="header">
+  <h2 class="header">You must delete your pick entry in order to re-submit them</h2>
+  <button class="btn btn-danger btn-large" ng-click="deletePicks(pick)">Delete Picks</button>
+  <div ng-repeat="pick in currentPicks">
+    <h5 class="header">{{pick}}</h5>
+  </div>
+</div>
+<br>
 
-<h2>Users in Contest:</h2>
-<ul ng-repeat="user in contest.usersWhoJoined">
-  <li><h4>{{user.username}}</h4></li>
-</ul>
 <form name="contestForm" ng-submit="submitPicks()">
   <table id="nbateams">
     <tr>
       <th>Home Team</th>
       <th>Away Team</th>
-      <th>Selected Team</th>
+      <th>
+        <div ng-show="!madePicks">
+          Selected Team
+        </div>
+      </th>
       <th>Winning Team</th>
     </tr>
     <tr ng-repeat="matchup in contest.matchups">
@@ -26,14 +34,20 @@
         <br>
         {{matchup.awayTeam}}
       </td>
-        <td>{{matchup.selectedTeam}}</td>
-        <td>{{matchup.winningTeam}}</td>
+        <td>
+          <div ng-show="!madePicks">
+            {{matchup.selectedTeam}}
+          </div>
+        </td>
+        <td>
+          {{matchup.winningTeam}}
+        </td>
     </tr>
   </table>
-  <button type="submit" ng-show="!hasMadePicks" ng-disabled= "buttonDisabled" class="btn btn-success">Submit Picks</button>
+  <br>
+  <button type="submit" ng-show="!hasMadePicks" ng-disabled= "buttonDisabled" class="btn btn-primary btn-large">Submit Picks</button>
 </form>
-
-<div class="container" ng-show="!makeAvailable">
+<div class="container">
   <h2 align="center">Contest Leaderboard</h2>
   <table id="nbateams">
     <thead>
@@ -44,9 +58,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="pick in contest.picks">
+      <tr ng-repeat="pick in contest.picks | orderBy:'-contestPoints'">
         <td>{{pick.user.username}}</td>
-        <td>{{pick.selectedTeams}}</td>
+        <td>
+          <div ng-show="makeAvailable">
+            {{pick.selectedTeams}}
+          </div>
+          <div ng-show="!makeAvailable">
+            Picks will appear once the contest begins
+          </div>
+        </td>
         <td>{{pick.contestPoints}}</td>
       </tr>
     </tbody>

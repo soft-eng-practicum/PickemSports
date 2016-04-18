@@ -13,7 +13,7 @@
                   <h1 class="mbr-hero__text">Welcome to PickEm' Sports</h1>
                     <p class="mbr-hero__subtext">We provide a web platform in order for users to compete amongst other users in choosing the winners in a particular set of matchups.</p>
                       <br>
-                      <span ng-hide="isLoggedIn()">Please login or register to compete!</span>
+                      <span ng-hide="isLoggedIn()">Please <a ui-sref="login">login</a> or <a ui-sref="register">register</a> to compete!</span>
                       <span ng-show="isLoggedIn()">Click the Contests button to view upcoming contests!</span>
                       <br>
                       <br>

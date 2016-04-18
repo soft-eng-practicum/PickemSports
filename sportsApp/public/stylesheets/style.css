@@ -1123,3 +1123,16 @@ h3 {
     border: 1px solid #eee;
 }
 img {max-width:100%;}
+
+div.header {
+    border: 10px dotted black;
+    padding: 35px;
+    background: white;
+    text-align: center;
+}
+h2.header {
+  color: black;
+}
+h5.header {
+  color: black;
+}

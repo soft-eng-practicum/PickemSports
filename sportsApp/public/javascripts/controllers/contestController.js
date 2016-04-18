@@ -26,11 +26,12 @@
     }
   ]);
 
-  app.controller("ContestController", ["$scope","contest", "authService", "contestService", "moment", function($scope, contest, authService, contestService, moment) {
+  app.controller("ContestController", ["$scope","contest", "authService", "contestService", "moment", "$window", function($scope, contest, authService, contestService, moment, $window) {
     $scope.isLoggedIn = authService.isLoggedIn;
     $scope.contest = contest;
     $scope.selectedTeams = [];
     $scope.makeAvailable = false;
+    $scope.currentPicks = [];
 
     // Check to see if the user has made picks
     angular.forEach($scope.contest.usersWhoJoined, function(user) {
@@ -85,10 +86,43 @@
       }).success(function(pick) {
         $scope.contest.picks.push(pick);
         contestService.participate(contest);
+        $window.location.reload();
       });
     }
 
+    function deletePicks() {
+      angular.forEach($scope.contest.picks, function(pick) {
+        if(pick.user._id == authService.currentUserId()) {
+          contestService.deletePicks(contest._id, pick).success(function() {
+            contest.picks.splice(contest.picks.indexOf(pick), 1);
+            contest.usersWhoJoined.splice(contest.usersWhoJoined.indexOf(pick.user._id), 1);
+            contest.particpants--;
+        })
+        $window.location.reload();
+      };
+    });
+  }
+
+  angular.forEach($scope.contest.picks, function(pick) {
+    console.log(pick.user._id);
+    if(pick.user._id == authService.currentUserId()) {
+      $scope.showDeletePicks = true;
+    } else {
+      $scope.showDeletePicks = false;
+    }
+  });
+
+  angular.forEach($scope.contest.picks, function(pick) {
+    if(pick.user._id == authService.currentUserId()) {
+      angular.forEach(pick.selectedTeams, function(selectedTeam) {
+        console.log(selectedTeam);
+        $scope.currentPicks.push(selectedTeam);
+      });
+    };
+  });
+
     $scope.checkPicks = checkPicks;
     $scope.submitPicks = submitPicks;
+    $scope.deletePicks = deletePicks;
 }]);
 })();
