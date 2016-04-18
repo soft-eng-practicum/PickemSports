@@ -1,13 +1,14 @@
 var mongoose = require("mongoose");
-var db = mongoose.connection;
-var collection = db.collection("contests");
+var express = require("express");
+var Contest = mongoose.model("Contest");
 var schedule = require('node-schedule');
-var date = new Date(2016, 3, 16, 16, 58, 0);
+var date = new Date(2016, 3, 18, 16, 54, 0);
 
-var j = schedule.scheduleJob(date, function(){
-  console.log('The world is going to end today.');
-  collection.update({"_id": "570bfbb3a9d732c2652f932c", "matchups.matchupId": 1}, {"$set": {"matchups.$.matchupWinner": "IT WORKS BABBBAY!!"}});
-  matchups.markModified("matchups");
-  collection.save();
+module.exports = function(Schedule) {
+  var Schedule = schedule.scheduleJob(date, function(){
+    console.log('The world is going to end today.');
 
-});
+    Contest.update({"_id": "5713fd7b9c9828c6dc3f7189", "matchups.matchupId": 1}, {"$set": {"matchups.$.matchupWinner": "IT WORKS BABBBAY!!"}});
+
+  });
+};

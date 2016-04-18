@@ -10,14 +10,13 @@ require("./models/Users");
 require("./models/Nbateam");
 require("./models/Mlbteam");
 require("./models/Nhlteam");
+require("./models/Nflteam");
 require("./models/Contest");
 require("./models/Pick");
 
 
 var passport = require("passport");
 require("./config/passport");
-
-
 
 var indexRoutes = require("./routes/index");
 var partialsRoutes = require("./routes/partials");
@@ -26,6 +25,7 @@ var usersRoutes = require("./routes/users");
 var nbaTeamsRoutes = require("./routes/nbateams");
 var mlbTeamsRoutes = require("./routes/mlbteams");
 var nhlTeamsRoutes = require("./routes/nhlteams");
+var nflTeamsRoutes = require("./routes/nflteams");
 var contestRoutes = require("./routes/contests");
 
 var app = express();
@@ -54,6 +54,7 @@ app.use("/", usersRoutes);
 app.use("/", nbaTeamsRoutes);
 app.use("/", mlbTeamsRoutes);
 app.use("/", nhlTeamsRoutes);
+app.use("/", nflTeamsRoutes);
 app.use("/", contestRoutes);
 
 // catch 404 and forward to error handler
