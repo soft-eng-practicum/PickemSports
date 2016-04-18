@@ -15,5 +15,5 @@ General Description: Pickem Sports is essientially a web-based fantasy sports ga
 
 Instructions:
   1. Connect to the classes server using Cisco VPN.
-  2. Go to the PickEm Site https://172.20.0.90:3199
+  2. Go to the PickEm Site 172.20.0.90:3199
   3. Register, Login, and try our sample Contest
