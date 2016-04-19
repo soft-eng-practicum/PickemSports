@@ -5,9 +5,9 @@ describe('true', function() {
 });
 
 
-describe ('auth fac', function() {
+describe ('authService', function() {
   var authService;
-  var window = null;
+  var windows;
 
   beforeEach(function() {
     module('sportsApp.services.auth');
@@ -16,11 +16,11 @@ describe ('auth fac', function() {
       authService = $injector.get('authService');
     });
 
-    window = { localStorage: {'sportsApp-token': "hello"} };
+    windows = { localStorage: {'sportsApp-token': "hello"} };
   });
 
   it('should save token', function() {
-    expect(window.localStorage['sportsApp-token']).toBe('hello');
+    expect(windows.localStorage['sportsApp-token']).toBe('hello');
     authService.saveToken('hi');
     expect(authService.getToken()).toBe('hi');
   });
