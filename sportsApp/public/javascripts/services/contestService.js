@@ -58,6 +58,16 @@
       });
     }
 
+    function makeChecked(contest) {
+      return $http.put("/contests/" + contest._id + "/makeChecked", null, {
+        headers: {
+          Authorization: "Bearer " + authService.getToken()
+        }
+      }).success(function(checkedContest) {
+        angular.copy(checkedContest, contest);
+      });
+    }
+
 
     o.getAll = getAll;
     o.get = get;
@@ -65,6 +75,7 @@
     o.createEntry = createEntry;
     o.incrementPoints = incrementPoints;
     o.deletePicks = deletePicks;
+    o.makeChecked = makeChecked;
 
     return o;
   }]);

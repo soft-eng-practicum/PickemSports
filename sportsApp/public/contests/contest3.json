@@ -1,20 +1,20 @@
 {
   "id": 3,
-  "tags": "MLB, NBA, NHL",
+  "tags": "MLB",
   "matchups": [
     {
       "matchupId": 1,
-      "homeTeam": "Atlanta",
-      "homeLogo": "stylesheets/mlblogos/Atlanta Braves.jpg",
-      "awayTeam": "Los Angeles",
-      "awayLogo": "stylesheets/mlblogos/LAD.jpg",
+      "homeTeam": "Washington",
+      "homeLogo": "stylesheets/mlblogos/Washington Nationals.jpg",
+      "awayTeam": "Minnesota",
+      "awayLogo": "stylesheets/mlblogos/MINN.png",
       "selectedTeam": "",
       "matchupWinner": ""
     },
     {
       "matchupId": 2,
-      "homeTeam": "Boston",
-      "homeLogo": "stylesheets/mlblogos/Boston Red Sox.jpg",
+      "homeTeam": "New York",
+      "homeLogo": "stylesheets/mlblogos/NYY.jpg",
       "awayTeam": "Tampa Bay",
       "awayLogo": "stylesheets/mlblogos/Tampa Bay Rays.jpg",
       "selectedTeam": "",
@@ -22,52 +22,80 @@
     },
     {
       "matchupId": 3,
-      "homeTeam": "Tampa Bay",
-      "homeLogo": "stylesheets/nhllogos/TB.png",
-      "awayTeam": "Detroit",
-      "awayLogo": "stylesheets/nhllogos/DET.png",
+      "homeTeam": "Toronto",
+      "homeLogo": "stylesheets/mlblogos/TOR.jpg",
+      "awayTeam": "Oakland",
+      "awayLogo": "stylesheets/mlblogos/Oakland Athletics.jpg",
       "selectedTeam": "",
       "matchupWinner": ""
     },
     {
       "matchupId": 4,
-      "homeTeam": "New York",
-      "homeLogo": "stylesheets/nhllogos/NYR.png",
-      "awayTeam": "Pittsburgh",
-      "awayLogo": "stylesheets/nhllogos/PITT.png",
+      "homeTeam": "Cincinnati",
+      "homeLogo": "stylesheets/mlblogos/CIN.jpeg",
+      "awayTeam": "Chicago",
+      "awayLogo": "stylesheets/mlblogos/Chicago Cubs.jpg",
       "selectedTeam": "",
       "matchupWinner": ""
     },
     {
       "matchupId": 5,
-      "homeTeam": "Dallas",
-      "homeLogo": "stylesheets/nbalogos/Dallas-Mavericks.png",
-      "awayTeam": "Oklahoma City",
-      "awayLogo": "stylesheets/nbalogos/OKC-Thunder.png",
+      "homeTeam": "Detroit",
+      "homeLogo": "stylesheets/mlblogos/DET.jpg",
+      "awayTeam": "Cleveland",
+      "awayLogo": "stylesheets/mlblogos/Cleveland Indians.jpg",
       "selectedTeam": "",
       "matchupWinner": ""
     },
     {
       "matchupId": 6,
-      "homeTeam": "Houston",
-      "homeLogo": "stylesheets/nbalogos/HOU-Rock.png",
-      "awayTeam": "Golden State",
-      "awayLogo": "stylesheets/nbalogos/GSW.png",
+      "homeTeam": "Atlanta",
+      "homeLogo": "stylesheets/mlblogos/Atlanta Braves.jpg",
+      "awayTeam": "New York",
+      "awayLogo": "stylesheets/mlblogos/New York Mets.jpg",
       "selectedTeam": "",
       "matchupWinner": ""
     },
     {
       "matchupId": 7,
-      "homeTeam": "Indiana",
-      "homeLogo": "stylesheets/nbalogos/IND-Pacers.png",
-      "awayTeam": "Toronto",
-      "awayLogo": "stylesheets/nbalogos/TOR-Raptors.png",
+      "homeTeam": "Chicago",
+      "homeLogo": "stylesheets/mlblogos/CWS.jpg",
+      "awayTeam": "Texas",
+      "awayLogo": "stylesheets/mlblogos/Texas Rangers.jpg",
+      "selectedTeam": "",
+      "matchupWinner": ""
+    },
+    {
+      "matchupId": 8,
+      "homeTeam": "Milwaukee",
+      "homeLogo": "stylesheets/mlblogos/Milwaukee Brewers.jpg",
+      "awayTeam": "Philadelphia",
+      "awayLogo": "stylesheets/mlblogos/PHI.jpg",
+      "selectedTeam": "",
+      "matchupWinner": ""
+    },
+    {
+      "matchupId": 9,
+      "homeTeam": "Houston",
+      "homeLogo": "stylesheets/mlblogos/HOU.jpg",
+      "awayTeam": "Boston",
+      "awayLogo": "stylesheets/mlblogos/Boston Red Sox.jpg",
+      "selectedTeam": "",
+      "matchupWinner": ""
+    },
+    {
+      "matchupId": 10,
+      "homeTeam": "Kansas City",
+      "homeLogo": "stylesheets/mlblogos/KC.png",
+      "awayTeam": "Baltimore",
+      "awayLogo": "stylesheets/mlblogos/BAL.jpg",
       "selectedTeam": "",
       "matchupWinner": ""
     }
   ],
   "participants": 0,
   "usersWhoJoined": [],
-  "start": "2016-04-21T17:59:00-05:00",
-  "end": "2016-04-22T12:00:00-05:00"
+  "start": "2016-04-22T18:04:00-05:00",
+  "end": "2016-04-23T12:00:00-05:00",
+  "isChecked": false
 }

@@ -77,6 +77,30 @@
       });
   });
 
+  router.route("/contests/:contest/makeChecked")
+    .put(auth, function(req, res, next) {
+      req.contest.makeChecked(function(err, contest) {
+        if(err) {
+          return next(err);
+        }
+      Contest.populate(req.contest, {
+        path: "usersWhoJoined",
+        select: "username"
+      })
+      Contest.populate(req.contest, {
+        path: "picks",
+      }).then(function(contest) {
+        Pick.populate(req.contest.picks, {
+          path: "user",
+          select: "username"
+        }).then(function(picks) {
+          res.json(contest);
+          res.json(picks);
+          });
+        });
+      });
+    });
+
   router.route("/contests/:contest/participate")
     .put(auth, function(req, res, next) {
       req.contest.participate(req.payload, function(err, contest) {
@@ -128,7 +152,7 @@
             });
           });
         })
-      })
+      });
     });
 
     router.route("/contests/:contest/picks/:pick")

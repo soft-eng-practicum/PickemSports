@@ -1,8 +1,11 @@
 <div class="page-header">
 </div>
 <div ng-show="showDeletePicks" class="header">
-  <h2 class="header">You must delete your pick entry in order to re-submit them</h2>
-  <button class="btn btn-danger btn-large" ng-click="deletePicks(pick)">Delete Picks</button>
+  <div ng-show="!contestStarted">
+    <h2 class="header">You must delete your pick entry in order to re-submit them</h2>
+    <button class="btn btn-danger btn-large" ng-click="deletePicks(pick)">Delete Picks</button>
+  </div>
+  <h2 class="header">Your Picks:</h2>
   <div ng-repeat="pick in currentPicks">
     <h5 class="header">{{pick}}</h5>
   </div>
@@ -40,7 +43,9 @@
           </div>
         </td>
         <td>
-          {{matchup.winningTeam}}
+          <div ng-show="makeAvailable">
+            {{matchup.matchupWinner}}
+          </div>
         </td>
     </tr>
   </table>

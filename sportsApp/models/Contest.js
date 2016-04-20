@@ -23,7 +23,8 @@ var ContestSchema = new mongoose.Schema(
     picks: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: "Pick"
-    }]
+    }],
+    isChecked: Boolean
   });
 
 ContestSchema.methods.participate = function(user, callback) {
@@ -33,6 +34,11 @@ ContestSchema.methods.participate = function(user, callback) {
 
     this.save(callback);
   }
+}
+
+ContestSchema.methods.makeChecked = function(callback) {
+  this.isChecked = true;
+  this.save(callback);
 }
 
 
