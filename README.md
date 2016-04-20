@@ -16,7 +16,7 @@ Process Tool: Trello at https://trello.com/b/d0WeeYuX/sports-app
 
 Development Platform: MEAN Stack (MongoDB, Express, Angular, Node)
 
-See for yourself at http://ec2-52-26-138-156.us-west-2.compute.amazonaws.com:3199/
+[Click To Play!] (http://ec2-52-26-138-156.us-west-2.compute.amazonaws.com:3199/)
 
 Instructions for class server:
   1. Connect to the classes server using Cisco VPN.
