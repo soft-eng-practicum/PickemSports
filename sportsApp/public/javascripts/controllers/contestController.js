@@ -33,6 +33,7 @@
     $scope.makeAvailable = false;
     $scope.currentPicks = [];
     $scope.userPicks = [];
+    $scope.addPicks = [];
 
     // Check to see if the user has made picks
     angular.forEach($scope.contest.usersWhoJoined, function(user) {
@@ -58,28 +59,24 @@
     };
     var length = 0;
     var count = 0;
+    console.log($scope.contest.isChecked);
     function checkPicks() {
       if(currentTime.isAfter(endTime) && $scope.contest.isChecked == false) {
-        console.log("Contest has ended, calculating results");
-        console.log($scope.contest.picks);
-        angular.forEach($scope.contest.picks, function(pick) {
-          angular.forEach(pick.selectedTeams, function(selectedTeam) {
-            length++;
-            angular.forEach($scope.contest.matchups, function(matchup) {
-              if(angular.equals(selectedTeam, matchup.matchupWinner) == true) {
-                count++;
-                contestService.incrementPoints(contest, pick);
-                console.log(angular.equals(selectedTeam, matchup.matchupWinner));
-              };
-            });
-            for(var i=0; i<=count; i++) {
-              contestService.incrementPoints(contest, pick);
-            }
-          });
+        angular.forEach($scope.contest.matchups, function(matchup) {
+          $scope.addPicks.push(matchup.matchupWinner);
         });
-        contestService.makeChecked(contest);
+        console.log("Contest has ended, calculating results");
+        angular.forEach($scope.contest.picks, function(pick) {
+          for(var i=0; i<pick.selectedTeams.length;i++) {
+            if(angular.equals(pick.selectedTeams[i], $scope.addPicks[i]) == true) {
+              count++;
+              console.log(count);
+            }
+          }
+          pick.contestPoints = count;
+          count = 0;
+        });
       };
-      console.log(length);
       console.log($scope.contest.matchups.length);
     }
 

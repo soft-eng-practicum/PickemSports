@@ -40,7 +40,7 @@
       });
     }
 
-    function incrementPoints(contest, pick) {
+    function setPoints(contest, pick) {
       return $http.put("/contests/" + contest._id + "/picks/" + pick._id + "/contestPoints", null, {
         headers: {
           Authorization: "Bearer " + authService.getToken()
@@ -73,7 +73,7 @@
     o.get = get;
     o.participate = participate;
     o.createEntry = createEntry;
-    o.incrementPoints = incrementPoints;
+    o.setPoints = setPoints;
     o.deletePicks = deletePicks;
     o.makeChecked = makeChecked;
 

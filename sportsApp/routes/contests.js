@@ -175,10 +175,12 @@
 
     router.route("/contests/:contest/picks/:pick/contestPoints")
       .put(auth, function(req, res, next) {
-        req.pick.incrementPoints(req.payload, function(err, pick) {
+        req.pick.contestPoints = req.body.count;
+        req.pick.save(function(err, pick) {
           if(err) {
             return next(err);
           }
+        });
           Pick.populate(pick, {
             path: "user",
             select: "username"
@@ -186,7 +188,6 @@
             res.json(pick);
           });
         });
-      });
 
   module.exports = router;
 })();
