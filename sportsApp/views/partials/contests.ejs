@@ -1,5 +1,8 @@
 <div class="page-header">
 </div>
+<div ng-show="!contestStarted">
+<h2 align="center">{{timeDiff()}} until the contest begins</h2>
+</div>
 <div ng-show="showDeletePicks" class="header">
   <div ng-show="!contestStarted">
     <h2 class="header">You must delete your pick entry in order to re-submit them</h2>
@@ -53,7 +56,6 @@
       {{matchup.homeTeam}}
     </td>
     <td>
-      <input type="radio" name="matchup{{matchup.matchupId}}" ng-model="matchup.selectedTeam" ng-value="matchup.awayTeam" ng-show="!madePicks" required>
       <img ng-src="{{matchup.awayLogo}}">
       <br>
       {{matchup.awayTeam}}
@@ -96,6 +98,9 @@
         <img ng-src="{{matchup.awayLogo}}">
         <br>
         {{matchup.awayTeam}}
+      </td>
+      <td>
+        {{matchup.selectedTeam}}
       </td>
     </tr>
   </table>
