@@ -32,7 +32,6 @@
     $scope.selectedTeams = [];
     $scope.makeAvailable = false;
     $scope.currentPicks = [];
-    $scope.userPicks = [];
     $scope.addPicks = [];
 
     // Check to see if the user has made picks
@@ -55,7 +54,6 @@
       console.log("Contest has already begun");
       $scope.madePicks = true;
       $scope.buttonDisabled = true;
-      $scope.makeAvailable = true;
     };
     var length = 0;
     var count = 0;
@@ -81,6 +79,7 @@
     }
 
     if(currentTime.isAfter(endTime)) {
+      $scope.makeAvailable = true;
       checkPicks();
     };
 
@@ -132,6 +131,8 @@
   if(currentTime.isAfter(startTime)) {
     $scope.contestStarted = true;
   }
+
+  console.log($scope.makeAvailable);
 
     $scope.checkPicks = checkPicks;
     $scope.submitPicks = submitPicks;
