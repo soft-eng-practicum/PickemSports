@@ -3,8 +3,8 @@
 
   var app = angular.module("sportsApp.services.contest", []);
 
-  app.factory("contestService", ["$http", "authService",
-  function($http, authService)
+  app.factory("contestService", ["$http", "authService", "$q",
+  function($http, authService, $q)
   {
     var o = {
       contests: []
@@ -68,6 +68,10 @@
       });
     }
 
+    function getWinners(id) {
+      return $http.get("/contests/contestWinners.json");
+    }
+
 
     o.getAll = getAll;
     o.get = get;
@@ -76,6 +80,7 @@
     o.setPoints = setPoints;
     o.deletePicks = deletePicks;
     o.makeChecked = makeChecked;
+    o.getWinners = getWinners;
 
     return o;
   }]);

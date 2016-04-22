@@ -11,47 +11,7 @@
   </div>
 </div>
 <br>
-
-<form name="contestForm" ng-submit="submitPicks()">
-  <table id="nbateams">
-    <tr>
-      <th>Home Team</th>
-      <th>Away Team</th>
-      <th>
-        <div ng-show="!madePicks">
-          Selected Team
-        </div>
-      </th>
-      <th>Winning Team</th>
-    </tr>
-    <tr ng-repeat="matchup in contest.matchups">
-      <td>
-        <input type="radio" name="matchup{{matchup.matchupId}}" ng-model="matchup.selectedTeam" ng-value="matchup.homeTeam" ng-show="!madePicks" required>
-        <img ng-src="{{matchup.homeLogo}}">
-        <br>
-        {{matchup.homeTeam}}
-      </td>
-      <td>
-        <input type="radio" name="matchup{{matchup.matchupId}}" ng-model="matchup.selectedTeam" ng-value="matchup.awayTeam" ng-show="!madePicks" required>
-        <img ng-src="{{matchup.awayLogo}}">
-        <br>
-        {{matchup.awayTeam}}
-      </td>
-        <td>
-          <div ng-show="!madePicks">
-            {{matchup.selectedTeam}}
-          </div>
-        </td>
-        <td>
-          <div ng-show="makeAvailable">
-            {{matchup.matchupWinner}}
-          </div>
-        </td>
-    </tr>
-  </table>
-  <br>
-  <button type="submit" ng-show="!hasMadePicks" ng-disabled= "buttonDisabled" class="btn btn-primary btn-large">Submit Picks</button>
-</form>
+<br>
 <div class="container">
   <h2 align="center">Contest Leaderboard</h2>
   <table id="nbateams">
@@ -77,4 +37,69 @@
       </tr>
     </tbody>
   </table>
+</div>
+<br>
+<br>
+<div ng-show="ended">
+<div class="row-fluid">
+<div class="col-xs-6">
+<table id="nbateams">
+  <th>Home Team</th>
+  <th>Away Team</th>
+  <tr ng-repeat="matchup in contest.matchups">
+    <td>
+      <img ng-src="{{matchup.homeLogo}}">
+      <br>
+      {{matchup.homeTeam}}
+    </td>
+    <td>
+      <input type="radio" name="matchup{{matchup.matchupId}}" ng-model="matchup.selectedTeam" ng-value="matchup.awayTeam" ng-show="!madePicks" required>
+      <img ng-src="{{matchup.awayLogo}}">
+      <br>
+      {{matchup.awayTeam}}
+    </td>
+  </tr>
+</table>
+</div>
+<div class="col-xs-6">
+  <table id=nbateams>
+  <th>Matchup Winners</th>
+  <tr ng-repeat="winner in winners">
+    <td>{{winner}}</td>
+  </tr>
+</table>
+</div>
+</div>
+</div>
+
+<div ng-show="!ended">
+<form name="contestForm" ng-submit="submitPicks()">
+  <table id="nbateams">
+    <tr>
+      <th>Home Team</th>
+      <th>Away Team</th>
+      <th>
+        <div ng-show="!madePicks">
+          Selected Team
+        </div>
+      </th>
+    </tr>
+    <tr ng-repeat="matchup in contest.matchups">
+      <td>
+        <input type="radio" name="matchup{{matchup.matchupId}}" ng-model="matchup.selectedTeam" ng-value="matchup.homeTeam" ng-show="!madePicks" required>
+        <img ng-src="{{matchup.homeLogo}}">
+        <br>
+        {{matchup.homeTeam}}
+      </td>
+      <td>
+        <input type="radio" name="matchup{{matchup.matchupId}}" ng-model="matchup.selectedTeam" ng-value="matchup.awayTeam" ng-show="!madePicks" required>
+        <img ng-src="{{matchup.awayLogo}}">
+        <br>
+        {{matchup.awayTeam}}
+      </td>
+    </tr>
+  </table>
+  <br>
+  <button type="submit" ng-show="!hasMadePicks" ng-disabled= "buttonDisabled" class="btn btn-primary btn-large">Submit Picks</button>
+</form>
 </div>
