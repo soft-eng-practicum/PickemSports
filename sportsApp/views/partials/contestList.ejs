@@ -26,13 +26,20 @@
     			<th>League(s) Included</th>
     			<th>Number of Participants</th>
           <th>Start Date</th>
-          <th> </th>
+          <th></th>
     		</tr>
         <tr ng-repeat="contest in contests">
         <td>{{contest.id}}</td>
         <td>{{contest.tags}}</td>
         <td>{{contest.participants}}</td>
-        <td>{{contest.start | date:"MM/dd/yyyy' at 'h:mma"}}</td>
+        <td>
+          <div ng-show="{{contest.isChecked}} == false">
+            {{contest.start | date:"MM/dd/yyyy' at 'h:mma"}}
+          </div>
+          <div ng-show="{{contest.isChecked}} == true">
+            Contest Complete
+          </div>
+        </td>
         <td><button class="btn btn-primary" ui-sref="contest({id: contest._id})">View</td>
     </table>
 </div>

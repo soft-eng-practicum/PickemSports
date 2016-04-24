@@ -8,10 +8,15 @@ var ContestSchema = new mongoose.Schema(
       matchupId: Number,
       homeTeam: String,
       homeLogo: String,
+      homeRecord: String,
+      homeInfo: String,
       awayTeam: String,
       awayLogo: String,
+      awayRecord: String,
+      awayInfo: String,
       selectedTeam: String,
-      matchupWinner: String
+      matchupWinner: String,
+      gameInfo: String
     }],
     participants: {
       type: Number
@@ -24,7 +29,9 @@ var ContestSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Pick"
     }],
-    isChecked: Boolean
+    isChecked: Boolean,
+    end: String,
+    start: String
   });
 
 ContestSchema.methods.participate = function(user, callback) {

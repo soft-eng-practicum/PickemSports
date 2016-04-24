@@ -1,7 +1,10 @@
 <div class="page-header">
 </div>
 <div ng-show="!contestStarted">
-<h2 align="center">{{timeDiff()}} until the contest begins</h2>
+  <h3 align="center">Contest Start Date: {{contest.start | date:"M/dd/yyyy' at 'h:mma"}}</h3>
+</div>
+<div ng-show="ended">
+  <h4 align="center">This contest has ended!</h4>
 </div>
 <div ng-show="showDeletePicks" class="header">
   <div ng-show="!contestStarted">
@@ -9,9 +12,9 @@
     <button class="btn btn-danger btn-large" ng-click="deletePicks(pick)">Delete Picks</button>
   </div>
   <h2 class="header">Your Picks:</h2>
-  <div ng-repeat="pick in currentPicks">
-    <h5 class="header">{{pick}}</h5>
-  </div>
+    <div ng-repeat="pick in currentPicks">
+      <h5 class="header">{{pick}}</h5>
+    </div>
 </div>
 <br>
 <br>
@@ -44,7 +47,7 @@
 <br>
 <br>
 <div ng-show="ended">
-<div class="row-fluid">
+<div class="container-fluid">
 <div class="col-xs-6">
 <table id="nbateams">
   <th>Home Team</th>
@@ -78,6 +81,8 @@
 <form name="contestForm" ng-submit="submitPicks()">
   <table id="nbateams">
     <tr>
+      <th>
+      </th>
       <th>Home Team</th>
       <th>Away Team</th>
       <th>
@@ -86,25 +91,40 @@
         </div>
       </th>
     </tr>
-    <tr ng-repeat="matchup in contest.matchups">
+    <tr ng-repeat-start="matchup in contest.matchups">
+      <td>
+        <button ng-if="matchup.expanded" ng-click="matchup.expanded = false" class="btn btn-warning btn-xs">Hide</button>
+        <button ng-if="!matchup.expanded" ng-click="matchup.expanded = true" class="btn btn-warning btn-xs">Details</button>
+      </td>
       <td>
         <input type="radio" name="matchup{{matchup.matchupId}}" ng-model="matchup.selectedTeam" ng-value="matchup.homeTeam" ng-show="!madePicks" required>
         <img ng-src="{{matchup.homeLogo}}">
         <br>
         {{matchup.homeTeam}}
+        <br>
+        {{matchup.homeRecord}}
       </td>
       <td>
         <input type="radio" name="matchup{{matchup.matchupId}}" ng-model="matchup.selectedTeam" ng-value="matchup.awayTeam" ng-show="!madePicks" required>
         <img ng-src="{{matchup.awayLogo}}">
         <br>
         {{matchup.awayTeam}}
+        <br>
+        {{matchup.awayRecord}}
       </td>
       <td>
         {{matchup.selectedTeam}}
       </td>
     </tr>
+    <tr ng-if="matchup.expanded" ng-repeat-end="">
+      <td></td>
+      <td><strong>{{matchup.homeInfo}}</strong></td>
+      <td><strong>{{matchup.awayInfo}}</strong></td>
+      <td><strong>{{matchup.gameInfo}}</strong></td>
+    </tr>
   </table>
   <br>
   <button type="submit" ng-show="!hasMadePicks" ng-disabled= "buttonDisabled" class="btn btn-primary btn-large">Submit Picks</button>
 </form>
+
 </div>

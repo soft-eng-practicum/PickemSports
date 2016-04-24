@@ -1,0 +1,102 @@
+{
+  "id": 4,
+  "tags": "NBA, NHL, MLB",
+  "matchups": [
+    {
+      "matchupId": 1,
+      "homeTeam": "Oklahoma City",
+      "homeLogo": "stylesheets/nbalogos/OKC-Thunder.png",
+      "homeRecord": "(55-27)",
+      "homeInfo": "Up (3-1)",
+      "awayTeam": "Dallas",
+      "awayLogo": "stylesheets/nbalogos/Dallas-Mavericks.png",
+      "awayRecord": "(42-40)",
+      "awayInfo": "Down (1-3)",
+      "selectedTeam": "",
+      "gameInfo": "Game 5: Monday at 8:00 PM"
+    },
+    {
+      "matchupId": 2,
+      "homeTeam": "Portland",
+      "homeLogo": "stylesheets/nbalogos/Portland-Trail-Blazers-Logo.png",
+      "homeRecord": "(44-38)",
+      "homeInfo": "Up (2-1)",
+      "awayTeam": "Los Angeles",
+      "awayLogo": "stylesheets/nbalogos/LAC.jpg",
+      "awayRecord": "(55-29)",
+      "awayInfo": "Down (1-2)",
+      "selectedTeam": "",
+      "gameInfo": "Game 4: Monday at 10:30 PM"
+    },
+    {
+      "matchupId": 3,
+      "homeTeam": "Nashville",
+      "homeLogo": "stylesheets/nhllogos/NASH.png",
+      "homeRecord": "41-27",
+      "homeInfo": "Down (2-3)",
+      "awayTeam": "Anaheim",
+      "awayLogo": "stylesheets/nhllogos/ANA.jpg",
+      "awayRecord": "(46-25)",
+      "awayInfo": "Up (3-2)",
+      "selectedTeam": "",
+      "gameInfo": "Game 6: Monday at 8:00 PM"
+    },
+    {
+      "matchupId": 4,
+      "homeTeam": "St. Louis",
+      "homeLogo": "stylesheets/nhllogos/STL.jpg",
+      "homeRecord": "(47-26)",
+      "homeInfo": "Tied (3-3)",
+      "awayTeam": "Chicago",
+      "awayLogo": "stylesheets/nhllogos/CHI.jpg",
+      "awayRecord": "(49-24)",
+      "awayInfo": "Tied (3-3)",
+      "selectedTeam": "",
+      "gameInfo": "Game 7: Monday at 8:30 PM"
+    },
+    {
+      "matchupId": 5,
+      "homeTeam": "Colorado",
+      "homeLogo": "stylesheets/mlblogos/COL.jpg",
+      "homeInfo": "De La Rosa (1-2)",
+      "homeRecord": "(9-8)",
+      "awayTeam": "Pittsburgh",
+      "awayLogo": "stylesheets/mlblogos/PITT.png",
+      "awayInfo": "Locke (0-2)",
+      "awayRecord": "(9-9)",
+      "selectedTeam": "",
+      "gameInfo": "Monday at 8:40 PM"
+    },
+    {
+      "matchupId": 6,
+      "homeTeam": "Arizona",
+      "homeLogo": "stylesheets/mlblogos/ARI.gif",
+      "homeInfo": "Grienke (1-2)",
+      "homeRecord": "(10-9)",
+      "awayTeam": "St. Louis",
+      "awayLogo": "stylesheets/mlblogos/St. Louis Cardinals.jpg",
+      "awayInfo": "Garcia (1-1)",
+      "awayRecord": "(9-8)",
+      "selectedTeam": "",
+      "gameInfo": "Monday at 9:40 PM"
+    },
+    {
+      "matchupId": 7,
+      "homeTeam": "Los Angeles",
+      "homeLogo": "stylesheets/mlblogos/Los Angeles Angels.jpg",
+      "homeInfo": "Richards (0-3)",
+      "homeRecord": "(8-10)",
+      "awayTeam": "Kansas City",
+      "awayLogo": "stylesheets/mlblogos/KC.png",
+      "awayInfo": "Kennedy (2-1)",
+      "awayRecord": "(11-6)",
+      "selectedTeam": "",
+      "gameInfo": "Monday at 10:05 PM"
+    }
+  ],
+  "participants": 0,
+  "usersWhoJoined": [],
+  "start": "2016-04-25T18:59:00-05:00",
+  "end": "2016-04-26T12:00:00-05:00",
+  "isChecked": false
+}

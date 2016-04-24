@@ -126,15 +126,6 @@
     });
   }
 
-  function timeDiff() {
-    var hours = moment.utc(moment(startTime).diff(moment(currentTime))).format("h");
-    hours = hours - 1;
-    var minutes = moment.utc(moment(startTime).diff(moment(currentTime))).format("mm");
-
-    var result = hours + " hours and " + minutes + " minutes";
-    return result;
-  }
-
   angular.forEach($scope.contest.picks, function(pick) {
     if(pick.user._id == authService.currentUserId()) {
       $scope.showDeletePicks = true;
@@ -151,6 +142,7 @@
     };
   });
 
+
   if(currentTime.isAfter(startTime)) {
     $scope.contestStarted = true;
   }
@@ -160,6 +152,5 @@
     $scope.checkPicks = checkPicks;
     $scope.submitPicks = submitPicks;
     $scope.deletePicks = deletePicks;
-    $scope.timeDiff = timeDiff;
 }]);
 })();

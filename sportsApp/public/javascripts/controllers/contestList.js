@@ -27,7 +27,17 @@
   function($scope, authService, contestService) {
     $scope.isLoggedIn = authService.isLoggedIn;
     $scope.contests = contestService.contests;
+    $scope.ended = false;
 
+    angular.forEach($scope.contests, function(contest) {
+      var now = moment();
+      var end = moment(contest.end);
+      console.log(now.isAfter(end));
+
+      if(now.isAfter(end) == true) {
+        contest.isChecked = true;
+      }
+    });
   }
 ]);
 })();
