@@ -7,7 +7,7 @@ describe('true', function() {
 
 describe ('authService', function() {
   var authService;
-  var windows;
+  var window = null;
 
   beforeEach(function() {
     module('sportsApp.services.auth');
@@ -16,11 +16,11 @@ describe ('authService', function() {
       authService = $injector.get('authService');
     });
 
-    windows = { localStorage: {'sportsApp-token': "hello"} };
+    window = { localStorage: {'sportsApp-token': "hello"} };
   });
 
   it('should save token', function() {
-    expect(windows.localStorage['sportsApp-token']).toBe('hello');
+    expect(window.localStorage['sportsApp-token']).toBe('hello');
     authService.saveToken('hi');
     expect(authService.getToken()).toBe('hi');
   });
