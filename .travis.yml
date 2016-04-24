@@ -9,5 +9,8 @@ before_script:
   - npm install karma --save-dev
   - npm install karma-jasmine karma-chrome-launcher --save-dev
   - npm install karma-phantomjs-launcher
+  - npm install angular-ui-router
+  - npm install angular-mocks
+
 before_install:
   - cd sportsApp
