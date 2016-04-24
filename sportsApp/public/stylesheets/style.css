@@ -895,3 +895,7 @@ h5.header {
     background-color: #2c3445;
   }
 }
+
+strong {
+  font-size:11px;
+}
