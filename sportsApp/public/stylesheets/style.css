@@ -822,6 +822,10 @@ div.header {
 h2.header {
   color: black;
 }
+h3.header {
+  color: black;
+  text-size:15px;
+}
 h5.header {
   color: black;
 }

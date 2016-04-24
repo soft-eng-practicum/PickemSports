@@ -3,16 +3,18 @@
 <div ng-show="!contestStarted">
   <h3 align="center">Contest Start Date: {{contest.start | date:"M/dd/yyyy' at 'h:mma"}}</h3>
 </div>
+<br>
 <div ng-show="ended">
   <h4 align="center">This contest has ended!</h4>
 </div>
+<br>
 <div ng-show="showDeletePicks" class="header">
   <div ng-show="!contestStarted">
-    <h2 class="header">You must delete your pick entry in order to re-submit them</h2>
+    <h3 class="header">If you would like to re-enter your entry, you must delete it first:</h3>
     <button class="btn btn-danger btn-large" ng-click="deletePicks(pick)">Delete Picks</button>
   </div>
-  <h2 class="header">Your Picks:</h2>
-    <div ng-repeat="pick in currentPicks">
+  <h3 class="header">Your Picks:</h2>
+    <div ng-repeat="pick in currentPicks track by $index">
       <h5 class="header">{{pick}}</h5>
     </div>
 </div>
